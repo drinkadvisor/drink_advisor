@@ -101,3 +101,11 @@ footer {
   height: 50px;
   bottom:0px;
 }
+
+address {
+  width: 50%;
+  text-align: center;
+  vertical-align: center;
+  margin: auto;
+  padding: auto;
+}
