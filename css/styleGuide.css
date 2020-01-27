@@ -1,0 +1,89 @@
+/* 
+
+https://www.color-hex.com/color-palette/7709 
+
+background-color: #dd1717;	
+background-color: #f4460b;	
+background-color: #940b0b;	
+background-color: #67140b;	
+background-color: #e5951a;
+
+background-color: rgb(221,23,23);
+background-color: rgb(244,70,11);
+background-color: rgb(148,11,11);
+background-color: rgb(103,20,11);
+background-color: rgb(229,149,26);
+
+<link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Lemonada|PT+Serif&display=swap" rel="stylesheet">
+
+font-family: 'Anonymous Pro', monospace;
+font-family: 'PT Serif', serif;
+font-family: 'Lemonada', cursive;
+*/
+
+header {
+  display:fixed;
+  width: 100%;
+  background-color: #f4460b;
+  height: 100px;
+  position:absolute;
+  top: 0;
+}
+
+#logo {
+  float: left;
+  height: 90px;
+}
+
+nav {
+  height: 25px;
+  width:500px;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+}
+
+nav ul {
+  display: inline-block;
+  margin:auto;
+  width:100%;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+}
+
+#subText {
+  width:960px;
+  margin:auto;
+}
+
+h1 {
+  width:100%;
+  font-size: 2em; 
+  font-family: 'Lemonada', cursive;
+  margin: auto;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-family: 'PT Serif', serif;
+}
+
+h4 {
+  font-size: 1.25em;
+  font-family: 'Anonymous Pro', monospace;
+}
+
+footer {
+  position:absolute;
+  display:fixed;
+  width: 100%;
+  background-color: #f4460b;
+  height: 50px;
+  bottom:0px;
+}
