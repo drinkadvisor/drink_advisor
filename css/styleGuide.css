@@ -36,19 +36,25 @@ header {
 }
 
 nav {
+  height: 25px;
   width:500px;
   margin:auto;
+  display:flex;
+  justify-content:center;
 }
 
 nav ul {
-  width: 100%;
+  display: inline-block;
   margin:auto;
+  width:100%;
 }
 
-nav ul li{
+nav ul li {
   display: inline-block;
-  justify-content: space-around;
-
+  margin: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
 }
 
 #subText {
