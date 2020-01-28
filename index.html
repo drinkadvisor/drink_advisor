@@ -33,7 +33,7 @@
                 </ul>
             </div>
             </nav>
-
+            <div id="loginForm">
             <form id="login">
                 <input id="usernameInput" name="username" type="string" required="required" placeholder="Username">
                 <button type='submit' name='addName'>Login</button>
@@ -41,10 +41,11 @@
             <div id="welcome">
                 <p id="welcomeMsg"></p>
                 <button id="logout" type="button" name="logout">Logout</button>
+            
             </div>
         </div>
     </header>
-
+<div id="mainDiv">
     <main>
         <form id="add-drink">
             <fieldset>
@@ -62,25 +63,29 @@
               <input name="writtenNotes" type="text">
               <!-- <input name="writtenNotes" type="text"> -->
               <textarea placeholder="Tasting notes..."></textarea>
-           
             </fieldset>
             <button type="submit">Add New Drink</button>
           </form>
+        </div>
+
         <div id="divOuter">
           <div id="divider">
             <br>
             <hr>
            </div>
         </div>
-        <div id="drinkTable">
-            <table>
-                <thead id='table-head'></thead>
-                <tbody id='table-body'></tbody>
-              </table>
+        
+        <div id="outerDrinkTable">
+            <div id="drinkTable">
+                <table>
+                    <thead id='table-head'></thead>
+                    <tbody id='table-body'></tbody>
+                </table>
+            </div>
         </div>
+
     </main>
 
-    <div class="push"></div>
 </div>
 <footer class="footer">
         <div>

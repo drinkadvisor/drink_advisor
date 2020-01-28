@@ -30,21 +30,39 @@ form{
     overflow: hidden;
 }
 
-#login{
-    display: inline-block ;
+#loginForm{
+    /* display: inline-block; */
+    float: right;
+}
+
+#login {
+    position: relative;
+    bottom: 18px;
+    right: 60px;
 }
 
 #welcome{
+    position: relative;
+    left: 800px;
+    bottom: 70px;
     display: none;
 }
 
-main {
+#welcomeMsg{
+    display: inline-block;
+}
 
-    /* background-color: white; */
-   min-height: auto; 
-
+#mainDiv {
+    margin-top: 100px;
     overflow: hidden;
     background-image: url("../assets/beer.jpg");
+}
+
+main {
+    /* background-color: white; */
+   min-height: auto; 
+    
+  
 }
 
 header{
@@ -116,12 +134,16 @@ legend{
 #drinkTable {
     width: 1024px;
     margin: 0 auto;
-    width: 960px;
     background-color: white;
     border: 1px solid black;
     border-radius: 10px;
     margin-top: 50px;
     box-shadow: 0 0 10px #f5f5dc;
+}
+
+#outerDrinkTable{
+    background-image: url("../assets/beer.jpg");
+    height: 600px;
 }
 
 .footer {
@@ -176,7 +198,7 @@ hr:before {
     box-shadow: 0 0 10px #f5f5dc;
     width: 100%;
     margin: 0 auto;
-    margin-top: 80px;
+    margin-top: 50px;
 }
 
 
