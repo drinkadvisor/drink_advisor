@@ -1,6 +1,7 @@
 'use strict';
 
 var headerArray = [' Name ', ' ABV ', ' Type ', ' Written Notes ', ' Score (out of 10) '];
+var value = ['name', 'abv', 'type', 'writtenNotes', 'score'];
 Addbeer.beerDrink = [];
 Addwine.wineDrink = [];
 var username = null;
@@ -88,29 +89,33 @@ var createHeader = function () {
   }
 };
 //Need to create seperate tr function;
-var tableRow = document.createElement('tr');
 
-var makeRow = function(){
-  tableRow = document.createElement('tr');
+Addbeer.prototype.tableRow = function(){
+
+  var tableRow = document.createElement('tr');
   drinkBody.appendChild(tableRow);
+  tableRow.id = this.name;
+
+  this.rowData();
 };
 
-var createDrinkData = function () {
+Addbeer.prototype.rowData = function () {
 
   for (var i = 0; i < headerArray.length; i++) {
-    makeRow();
     var userDrinkData = document.createElement('td');
+    userDrinkData.textContent = this[value[i]];
 
-    userDrinkData.textContent = Addbeer.beerDrink[i].name + Addbeer.beerDrink[i].abv + Addbeer.beerDrink[i].type + Addbeer.beerDrink[i].writtenNotes + Addbeer.beerDrink[i].score;
-
-    tableRow.appendChild(userDrinkData);
+    var row = document.getElementById(this.name);
+    row.appendChild(userDrinkData);
   }
-
 };
 
-new Addbeer('Corona', '5%', 'Lager', 'nothing special', '5/10');
+new Addbeer(' Corona ', ' 5% ', 'Lager ', 'nothing special ', '5/10 ');
 new Addbeer('abcc', 'dasdasd', 'asdasd', 'asdasd', '5');
-console.log(Addbeer.beerDrink);
 createHeader();
-createDrinkData();
+
+for (var i = 0; i < Addbeer.beerDrink.length; i++) {
+  Addbeer.beerDrink[i].tableRow();
+}
+
 
