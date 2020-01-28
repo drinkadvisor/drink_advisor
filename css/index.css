@@ -29,6 +29,10 @@ p {
     display: inline-block ;
 }
 
+#welcome{
+    display: none;
+}
+
 main {
     /* background-color: white; */
     height: 450px;
