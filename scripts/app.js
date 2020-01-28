@@ -60,22 +60,24 @@ function updateStorage() {
   updateStorageUser();
 }
 
-//get wine from local storage
-function getStorageWine(){
+//get wine from LS
+function getStorageWine() {
   var productData = localStorage.getItem('wineData');
   var parsedData = JSON.parse(productData);
   Addwine.wineDrink = 0;
-  for(var i = 0; i < parsedData.length; i++){
+
+  for (var i = 0; i < parsedData.length; i++) {
     new Addwine(parsedData[i].name, parsedData[i].abv, parsedData[i].type, parsedData[i].writtenNotes, parsedData[i].score);
   }
 }
 
-//get beer from local storage
-function getStorageBeer(){
+//get beer from LS
+function getStorageBeer() {
   var productData = localStorage.getItem('beerData');
   var parsedData = JSON.parse(productData);
   Addbeer.beerDrink = 0;
-  for(var i = 0; i < parsedData.length; i++){
+
+  for (var i = 0; i < parsedData.length; i++) {
     new Addbeer(parsedData[i].name, parsedData[i].abv, parsedData[i].type, parsedData[i].writtenNotes, parsedData[i].score);
   }
 }
