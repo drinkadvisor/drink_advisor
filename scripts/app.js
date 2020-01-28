@@ -2,6 +2,7 @@
 
 Addbeer.beerDrink = [];
 Addwine.wineDrink = [];
+var username = null;
 
 function Addbeer(name, abv, type, writtenNotes, score) {
   this.name = name;
@@ -29,8 +30,12 @@ function updateStorageWine() {
 }
 
 function updateStorageBeer() {
-  var arrayString = JSON.stringify(Addbeer.beerDrink);
-  localStorage.setItem('beertData', arrayString);
+  var beerString = JSON.stringify(Addbeer.beerDrink);
+  var nameString = JSON.stringify(username);
+  var wineString = JSON.stringify(wineString);
+  localStorage.setItem('beerData', beerString);
+  localStorage.setItem("user", nameString);
+  localStorage.setItem("wineData", wineString);
 
 }
 
@@ -57,9 +62,9 @@ function getStorageBeer() {
 
 //event listener for login
 function handleLogin(event) {
-  event.preventDefault();
+  // event.preventDefault();
   console.log('hi');
-  var username = event.target.username.value;
+  username = event.target.username.value;
   console.log(event.target.username);
   console.log(`User signed in as ${username}`);
 }
