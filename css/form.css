@@ -25,9 +25,26 @@ p {
     /* margin-left: 45px; */
 }
 
+#login{
+    margin-bottom: 30px;
+}
+
 main {
     /* background-color: white; */
     height: 450px;
     overflow: hidden;
     /* background-image: url("assets/MyFirstBoard.jpg"); */
+}
+
+header{
+    height: 130px;
+}
+
+button {
+    display: inline;
+    margin: 15px;
+    background-color: #67140b;
+    color: #e5951a;
+    padding: 12px;
+    font-weight: bolder;
 }
