@@ -1,0 +1,30 @@
+/* main {
+    width: 960px;
+    margin: 0 auto;
+} */
+
+* {
+    border: 3px solid white;
+}
+
+p {
+    width: 960px;
+    margin: 0 auto;
+    line-height: 20px;
+    
+}
+
+#text {
+    width: 960px;
+    margin: 0 auto;
+    padding: 60px;
+    border-radius: 10px;
+    margin-top: 80px;
+    box-shadow: 0 0 20px #999;
+}
+
+main {
+    /* background-color: white; */
+    height: 450px;
+    background-image: url("assets/MyFirstBoard.jpg");
+}
