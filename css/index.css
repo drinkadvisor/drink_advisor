@@ -6,7 +6,6 @@ header{
 #subText{
     width: 960px;
     margin-left: 250px;
-
 }
 
 p {
@@ -19,25 +18,23 @@ p {
 #add-drink {
     width: 960px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 2em;
     border-radius: 10px;
     box-shadow: 0 0 20px #67140b;
-    margin-top: 85px;
+    margin-top: 4em;
+    background-color: white;
 
 }
 
 #login{
     display: inline-block ;
-   
-    /* margin-left: 0px;
-    padding-left: 0%; */
 }
 
 main {
     /* background-color: white; */
     height: 450px;
     overflow: hidden;
-    /* background-image: url("assets/MyFirstBoard.jpg"); */
+    background-image: url("../assets/beer.jpg");
 }
 
 header{
