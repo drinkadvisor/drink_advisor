@@ -119,9 +119,13 @@ function getStorage() {
   getStorageUser();
 }
 
+//util to clear storage
+function clearStorage() {
+  localStorage.clear();
+}
+
 //hide login
 function hideLogin() {
-  var loginForm = document.getElementById('login');
   loginForm.setAttribute('style', 'display: none');
 }
 
@@ -137,18 +141,21 @@ function handleLogin(event) {
   hideLogin();
 }
 
-//add event listener to login
-var loginForm = document.getElementById('login');
+function handleLogout(event) {
+  event.preventDefault();
+  console.log(`${username} logged out`);
+  clearStorage();
+  loginForm.setAttribute('style', 'display: inline-block');
+}
 
 //test block
 var x = new Addbeer('corona', '5%', 'lager', 'I mean its beer with lime usually', '2.5');
 console.log(x);
 console.log(Addbeer.beerDrink);
 
-//adding event listener for login
+//adding event listeners for login/logout
+var loginForm = document.getElementById('login');
+var logoutButton = document.getElementById('logout');
 loginForm.addEventListener('submit', handleLogin);
+logoutButton.addEventListener('click', handleLogout);
 
-//util to clear storage
-function clearStorage() {
-  localStorage.clear();
-}
