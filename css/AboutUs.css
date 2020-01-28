@@ -35,3 +35,8 @@ main {
     background-image: url("../assets/corks.jpg");
     overflow: hidden;
 }
+
+#btn3{
+    background-color: #67140b;
+    border-bottom: 3px solid #e5951a;
+}

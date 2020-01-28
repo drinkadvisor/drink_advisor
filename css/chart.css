@@ -43,3 +43,8 @@ main {
     background-repeat: repeat-x;
     z-index: -1;
 }
+
+#btn2{
+    background-color: #67140b;
+    border-bottom: 3px solid #e5951a;
+}
