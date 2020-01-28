@@ -107,7 +107,7 @@ function handleLogin(event) {
   event.preventDefault();
   var username = event.target.username.value;
   console.log(`User signed in as ${username}`);
-  if (username !== getUser()) {
+  if (username !== getStorageUser()) {
     currentUser = new User(username, 999);
   }
   updateStorage();
