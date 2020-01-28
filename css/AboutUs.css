@@ -37,4 +37,5 @@ main {
     /* background-color: white; */
     height: 450px;
     background-image: url("assets/MyFirstBoard.jpg");
+    overflow: hidden;
 }
