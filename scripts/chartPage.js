@@ -68,7 +68,8 @@ TypeScore.prototype.generateAverage = function() {
 };
 
 //this is testing code for the chartScoreAverage function
-//we can delete later
+//we can delete later after we confirm that objects are being built correctly
+//and we get a console log showing as much
 // var labs = ['foo', 'bar'];
 
 // var a = {
