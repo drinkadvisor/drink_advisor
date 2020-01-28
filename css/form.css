@@ -17,12 +17,11 @@ p {
 #add-drink {
     width: 960px;
     margin: 0 auto;
-    padding: 60px;
+    padding: 20px;
     border-radius: 10px;
-    margin-top: 80px;
     box-shadow: 0 0 20px #999;
-    margin-top: 100px;
-    /* margin-left: 45px; */
+    margin-top: 85px;
+
 }
 
 #login{
@@ -44,11 +43,11 @@ header{
 button {
     display: inline;
     margin: 15px;
-    background-color: #67140b;
-    color: #e5951a;
+    background-color: #dd1717;
+    color: #67140b;
     padding: 12px;
     font-weight: bolder;
-}
+} 
 
 nav {
     float: left;
