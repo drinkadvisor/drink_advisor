@@ -31,7 +31,7 @@ p {
 
 main {
     /* background-color: white; */
-    height: 450px;
+   min-height: auto; 
     overflow: hidden;
     background-image: url("../assets/beer.jpg");
 }

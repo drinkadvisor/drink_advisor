@@ -133,6 +133,23 @@ function clearStorage() {
 function hideLogin() {
   loginForm.setAttribute('style', 'display: none');
 }
+//event listener for add drink
+function handleAddBeer(event) {
+
+  event.preventDefault();
+  var name = event.target.name.value;
+  var abv = (event.target.abv.value);
+  var type = (event.target.type.value);
+  var writtenNotes = (event.target.writtenNotes.value);
+  var score = parseInt(event.target.score.value);
+
+  var newBeer = new Addbeer(name, abv, type, writtenNotes, score);
+
+  newBeer.tableRow();
+}
+// Button for add drink
+var addNewDrink = document.getElementById('add-drink');
+addNewDrink.addEventListener('submit', handleAddBeer);
 
 //event listener for login
 function handleLogin(event) {
@@ -187,10 +204,6 @@ Addbeer.prototype.rowData = function () {
   }
 };
 
-new Addbeer(' Corona ', ' 5% ', 'Lager ', 'nothing special ', '5/10 ');
-new Addbeer('abcc', 'dasdasd', 'asdasd', 'asdasd', '5');
-createHeader();
-
 for (var i = 0; i < Addbeer.beerDrink.length; i++) {
   Addbeer.beerDrink[i].tableRow();
 }
@@ -203,12 +216,8 @@ function handleLogout(event) {
   clearStorage();
   loginForm.setAttribute('style', 'display: inline-block');
 }
-
+createHeader();
 //test block
-var x = new Addbeer('corona', '5%', 'lager', 'I mean its beer with lime usually', '2.5');
-console.log(x);
-console.log(Addbeer.beerDrink);
-
 
 //adding event listeners for login/logout
 var loginForm = document.getElementById('login');
