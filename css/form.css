@@ -1,0 +1,33 @@
+/* main {
+    width: 960px;
+    margin: 0 auto;
+} */
+
+/* * {
+    border: 3px solid white;
+} */
+
+p {
+    width: 960px;
+    margin: 0 auto;
+    line-height: 20px;
+    
+}
+
+#add-drink {
+    width: 960px;
+    margin: 0 auto;
+    padding: 60px;
+    border-radius: 10px;
+    margin-top: 80px;
+    box-shadow: 0 0 20px #999;
+    margin-top: 100px;
+    /* margin-left: 45px; */
+}
+
+main {
+    /* background-color: white; */
+    height: 450px;
+    overflow: hidden;
+    /* background-image: url("assets/MyFirstBoard.jpg"); */
+}
