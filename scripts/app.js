@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('Hello World!');
-
 Addbeer.beerDrink = [];
 Addwine.wineDrink = [];
 
@@ -36,26 +34,28 @@ function updateStorageBeer() {
 
 }
 
-function getStorageWine(){
+function getStorageWine() {
   var productData = localStorage.getItem('wineData');
   var parsedData = JSON.parse(productData);
   Addwine.wineDrink = 0;
 
-  for(var i = 0; i < parsedData.length; i++){
+  for (var i = 0; i < parsedData.length; i++) {
     new Addwine(parsedData[i].name, parsedData[i].abv, parsedData[i].type, parsedData[i].writtenNotes, parsedData[i].score);
   }
 }
 
-function getStorageBeer(){
+function getStorageBeer() {
   var productData = localStorage.getItem('beerData');
   var parsedData = JSON.parse(productData);
   Addbeer.beerDrink = 0;
 
-  for(var i = 0; i < parsedData.length; i++){
+  for (var i = 0; i < parsedData.length; i++) {
     new Addbeer(parsedData[i].name, parsedData[i].abv, parsedData[i].type, parsedData[i].writtenNotes, parsedData[i].score);
   }
 }
 
-
+var x = new Addbeer('corona', '5%', 'lager', 'I mean its beer with lime usually', '2.5');
+console.log(x);
+console.log(Addbeer.beerDrink);
 
 
