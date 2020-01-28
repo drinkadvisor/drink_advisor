@@ -153,6 +153,7 @@ var x = new Addbeer('corona', '5%', 'lager', 'I mean its beer with lime usually'
 console.log(x);
 console.log(Addbeer.beerDrink);
 
+
 //adding event listeners for login/logout
 var loginForm = document.getElementById('login');
 var logoutButton = document.getElementById('logout');
