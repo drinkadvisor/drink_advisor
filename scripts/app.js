@@ -146,16 +146,6 @@ function handleLogin(event) {
   hideLogin();
 }
 
-<<<<<<< HEAD
-//event listener for logout
-function handleLogin(event) {
-  event.preventDefault();
-  console.log(`${username} signed out`);
-  clearStorage();
-  loginForm.setAttribute('style', 'display: inline-block');
-}
-
-=======
 
 //add event listener to login
 var loginForm = document.getElementById('login');
@@ -213,25 +203,16 @@ function handleLogout(event) {
   clearStorage();
   loginForm.setAttribute('style', 'display: inline-block');
 }
->>>>>>> 4b7b0935d8858ab0b1d48decaedafc42aa4e720f
 
 //test block
 var x = new Addbeer('corona', '5%', 'lager', 'I mean its beer with lime usually', '2.5');
 console.log(x);
 console.log(Addbeer.beerDrink);
 
-<<<<<<< HEAD
-//add event listener to login/logout
-=======
 
 //adding event listeners for login/logout
->>>>>>> 4b7b0935d8858ab0b1d48decaedafc42aa4e720f
 var loginForm = document.getElementById('login');
 var logoutButton = document.getElementById('logout');
 loginForm.addEventListener('submit', handleLogin);
 logoutButton.addEventListener('click', handleLogout);
-<<<<<<< HEAD
-=======
-
->>>>>>> 4b7b0935d8858ab0b1d48decaedafc42aa4e720f
 
