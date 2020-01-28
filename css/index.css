@@ -29,13 +29,10 @@ p {
     display: inline-block ;
 }
 
-<<<<<<< HEAD
 #welcome{
     display: none;
 }
 
-=======
->>>>>>> a957a2e9dbf74e10df18c175d043e689b27f2c8a
 main {
     /* background-color: white; */
     height: 450px;
