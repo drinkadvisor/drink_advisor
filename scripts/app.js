@@ -1,6 +1,6 @@
 'use strict';
 
-var headerArray = ['Name ', 'ABV ', 'Type ', 'Written Notes ', 'Score (out of 10) '];
+var headerArray = [' Name ', ' ABV ', ' Type ', ' Written Notes ', ' Score (out of 10) '];
 Addbeer.beerDrink = [];
 Addwine.wineDrink = [];
 var username = null;
@@ -60,7 +60,6 @@ function getStorageBeer() {
   }
 }
 
-
 //event listener for login
 function handleLogin(event) {
   // event.preventDefault();
@@ -81,9 +80,6 @@ loginForm.addEventListener('submit', handleLogin);
 var drinkHeader = document.getElementById('table-head');
 var drinkBody = document.getElementById('table-body');
 
-drinkHeader.appendChild(document.createElement('th'));
-
-
 var createHeader = function () {
   for (var x = 0; x < headerArray.length; x++) {
     var categories = document.createElement('th');
@@ -91,14 +87,30 @@ var createHeader = function () {
     drinkHeader.appendChild(categories);
   }
 };
+//Need to create seperate tr function;
+var tableRow = document.createElement('tr');
 
-var createDrinkData = function () {
-  drinkBody.appendChild(userDrinkData);
-  for (var i = 0; i < Addbeer.beerDrink.length; i++) {
-    var userDrinkData = document.createElement('td');
-    userDrinkData.textContent = Addbeer.beerDrink[i].name, Addbeer.beerDrink[i].abv, Addbeer.beerDrink[i].type, Addbeer.beerDrink[i].writtenNotes, Addbeer.beerDrink[i].score;
-  }
+var makeRow = function(){
+  tableRow = document.createElement('tr');
+  drinkBody.appendChild(tableRow);
 };
 
+var createDrinkData = function () {
 
+  for (var i = 0; i < headerArray.length; i++) {
+    makeRow();
+    var userDrinkData = document.createElement('td');
+
+    userDrinkData.textContent = Addbeer.beerDrink[i].name + Addbeer.beerDrink[i].abv + Addbeer.beerDrink[i].type + Addbeer.beerDrink[i].writtenNotes + Addbeer.beerDrink[i].score;
+
+    tableRow.appendChild(userDrinkData);
+  }
+
+};
+
+new Addbeer('Corona', '5%', 'Lager', 'nothing special', '5/10');
+new Addbeer('abcc', 'dasdasd', 'asdasd', 'asdasd', '5');
+console.log(Addbeer.beerDrink);
+createHeader();
+createDrinkData();
 
