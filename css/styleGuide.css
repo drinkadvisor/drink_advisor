@@ -21,6 +21,10 @@ font-family: 'PT Serif', serif;
 font-family: 'Lemonada', cursive;
 */
 
+body {
+  font-family: 'Lato', sans-serif;
+}
+
 header {
   display:fixed;
   width: 100%;
@@ -32,9 +36,8 @@ header {
 
 a {
   text-decoration:none;
-  color: #e5951a;
+  color: #000;
   font-weight:bold;
-  text-shadow:1px 1px #67140b;
 }
 
 #logo {
@@ -76,7 +79,7 @@ main {
 h1 {
   width:100%;
   font-size: 2em; 
-  font-family: 'Lemonada', cursive;
+  font-family: 'Abril Fatface', cursive;
   margin: auto;
   color: black;
 }
@@ -91,6 +94,10 @@ h4 {
   font-size: 1.25em;
   font-family: 'Anonymous Pro', monospace;
   color: #67140b;
+}
+
+label {
+  font-family: 'Lato', sans-serif;
 }
 
 footer {

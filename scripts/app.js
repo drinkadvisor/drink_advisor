@@ -6,6 +6,29 @@ console.log('Hello World!');
 var currentUser;
 Addbeer.beerDrink = [];
 Addwine.wineDrink = [];
+var username = null;
+
+var beerTypes = ['Lager', 'Ale', 'IPA', 'Pilsner', 'Witbier', 'Stout', 'Pale Ale', 'Porter', 'Brown', 'Red', 'Belgian'];
+var wineTypes = ['Chardonnay', 'Riesling', 'Pinot Grigio', 'Sauvignon Blanc', 'Cabernet Sauvignon', 'Pinot Noir', 'Syrah', 'Zinfandel', 'Malbec', 'Merlot'];
+
+/*
+provide the ID of the <select> element and the array of options to populate to that <select> element
+arguments: <select> node id, array of strings
+1.clear all <option> off the <select> tag
+2.create an <option> for each element in 'optionArray' (value and name)
+*/
+function dropdownOptions(selectID, optionArray){
+  var selectTag = document.getElementById(selectID);
+  selectTag.options.length = 0;
+
+  for(var optioni = 0; optioni < optionArray.length; optioni++){
+    let option = document.createElement('option');
+    option.innerText = optionArray[optioni];
+    option.value = optionArray[optioni];
+    selectTag.appendChild(option);
+  }
+
+}
 
 //beer constructor
 function Addbeer(name, abv, type, writtenNotes, score) {
