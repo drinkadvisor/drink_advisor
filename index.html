@@ -9,23 +9,31 @@
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Lato&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='./css/styleGuide.css'>
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Lemonada|PT+Serif&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link rel='stylesheet' href='./css/index.css'>
+    <title>Homepage</title>
+
+    <link rel='stylesheet' href='./css/Table.css'>
+
 </head>
 
-<body>
+<body >
+
     <header>
         <div id='subText'>
             <img id='logo' src="./assets/drinkadvisorLogo.png">
             <h1>Drink Advisor</h1>
             <h3>Alcohol and Statistics: Together At Last</h3>
+
             <nav>
+                <div id="myDIV">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="charts.html">Charts</a></li>
-                    <li><a href="aboutUs.html">About Us</a>
-                    <li>
+                    <li><a href="index.html" class="target" id="btn1">Home</a></li>
+                    <li><a href="charts.html" class="target">Charts</a></li>
+                    <li><a href="aboutUs.html" class="target">About Us</a><li>
                 </ul>
+            </div>
             </nav>
+
             <form id="login">
                 <input id="usernameInput" name="username" type="string" required="required" placeholder="Username">
                 <button type='submit' name='addName'>Login</button>
@@ -36,21 +44,24 @@
             </div>
         </div>
     </header>
+
     <main>
         <form id="add-drink">
             <fieldset>
               <legend>New Beer</legend>
               <label>Name</label>
               <input name="name" type="text">
-              <label>ABV</label>
-              <input name="abv" type="text">
               <label>Type</label>
               <input name="type" type="text">
+              <label>ABV</label>
+              <input name="abv" type="number" id="abv">
+              <label>Score</label>
+              <input name="score" type="number" id="score">
               <br></br>
               <label>Notes</label>
-              <input name="writtenNotes" type="text">
-              <label>Score</label>
-              <input name="score" type="text">
+              <!-- <input name="writtenNotes" type="text"> -->
+              <textarea placeholder="Tasting notes..."></textarea>
+             
             </fieldset>
             <button type="submit">Add New Drink</button>
           </form>
@@ -58,7 +69,6 @@
             <table>
                 <thead id='table-head'></thead>
                 <tbody id='table-body'></tbody>
-                <tfoot id='table-foot'></tfoot>
               </table>
         </div>
     </main>
@@ -69,7 +79,8 @@
             </address>
         </div>
     </footer>
-    <script src="scripts/app.js"></script>
+    <script src="scripts/app.js">       
+    </script>
 </body>
 
 </html>
