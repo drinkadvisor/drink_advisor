@@ -1,3 +1,4 @@
+
 header{
     width: 100%;
     margin: 0 auto;
@@ -22,7 +23,11 @@ p {
     box-shadow: 0 0 20px #67140b;
     margin-top: 4em;
     background-color: white;
+    overflow: hidden;
+}
 
+form{
+    overflow: hidden;
 }
 
 #login{
@@ -30,8 +35,8 @@ p {
 }
 
 main {
-    /* background-color: white; */
-    height: 450px;
+    min-height: 800px;
+    /* overflow: auto; */
     overflow: hidden;
     background-image: url("../assets/beer.jpg");
 }
@@ -70,7 +75,7 @@ input[type=text]:focus {
     background-color: lightgray;
   }
 
-  textarea {
+textarea {
     width: 100%;
     height: 100px;
     padding: 12px 20px;
@@ -80,19 +85,19 @@ input[type=text]:focus {
     background-color: #f8f8f8;
     font-size: 16px;
     resize: none;
-  }
+}
 
-  legend{
-      font-size: 18px;
-      margin: 10px;
-      margin-left: 0px;
-  }
+legend{
+    font-size: 18px;
+    margin: 10px;
+    margin-left: 0px;
+}
 
-  #abv {
-      width: 40px;
-  }
+#abv {
+    width: 40px;
+}
 
-  #score {
+#score {
     width: 40px;
 }
 
@@ -100,4 +105,75 @@ input[type=text]:focus {
     background-color: #67140b;
     border-bottom: 3px solid #e5951a;
     font-size: 22px;
+}
+
+#drinkTable {
+    width: 1024px;
+    margin: 0 auto;
+    width: 960px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 50px;
+    box-shadow: 0 0 10px #f5f5dc;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }
+
+  header{
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+  }
+
+
+
+hr {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: #f5f5dc;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+
+hr:before { 
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: #f5f5dc;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
+#divider{
+    height: 50px;
+    background-color: #67140b;
+    /* box-shadow: 0 0 10px #f5f5dc; */
+    width: 630px;
+    margin: 0 auto;
+}
+
+#divOuter{
+    height: 50px;
+    background-color: #67140b;
+    box-shadow: 0 0 10px #f5f5dc;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+
+form{
+    padding-bottom: 200px;
 }
