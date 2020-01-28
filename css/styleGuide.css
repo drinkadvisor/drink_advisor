@@ -108,3 +108,10 @@ footer {
   height: 50px;
   bottom:0px;
 }
+
+address {
+  width: 50%;
+    text-align: center;
+    margin: auto;
+    padding-top: 1%;
+}
