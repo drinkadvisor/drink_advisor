@@ -35,10 +35,11 @@ function dropdownOptions(selectID, optionArray){
 //beer constructor
 function Addbeer(name, abv, type, writtenNotes, score) {
   this.name = name;
-  this.abv = abv;
+  this.abv = parseFloat(abv);
   this.type = type;
   this.writtenNotes = writtenNotes;
-  this.score = score;
+  this.score = parseFloat(score);
+  
   //push to local array
   Addbeer.beerDrink.push(this);
 }
@@ -46,10 +47,11 @@ function Addbeer(name, abv, type, writtenNotes, score) {
 //wine constructor
 function Addwine(name, abv, type, writtenNotes, score) {
   this.name = name;
-  this.abv = abv;
+  this.abv = parseFloat(abv);
   this.type = type;
   this.writtenNotes = writtenNotes;
-  this.score = score;
+  this.score = parseFloat(score);
+  
   //push to local array
   Addwine.wineDrink.push(this);
 }
@@ -92,7 +94,7 @@ function getStorageWine() {
   Addwine.wineDrink = 0;
 
   for (var i = 0; i < parsedData.length; i++) {
-    new Addwine(parsedData[i].name, parsedData[i].abv, parsedData[i].type, parsedData[i].writtenNotes, parsedData[i].score);
+    new Addwine(parsedData[i].name, parseFloat(parsedData[i].abv), parsedData[i].type, parsedData[i].writtenNotes, parseFloat(parsedData[i].score));
   }
 }
 
@@ -103,7 +105,7 @@ function getStorageBeer() {
   Addbeer.beerDrink = 0;
 
   for (var i = 0; i < parsedData.length; i++) {
-    new Addbeer(parsedData[i].name, parsedData[i].abv, parsedData[i].type, parsedData[i].writtenNotes, parsedData[i].score);
+    new Addbeer(parsedData[i].name, parseFloat(parsedData[i].abv), parsedData[i].type, parsedData[i].writtenNotes, parseFloat(parsedData[i].score));
   }
 }
 
