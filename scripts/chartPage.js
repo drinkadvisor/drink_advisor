@@ -6,15 +6,19 @@ arrays and drink object arrays to pass them in
 //this needs more functions to run, just a placeholder
 function renderChart(ctx, typeArray, drinkArray){
   var data = {};
-  var labels = typeArray;
+  var labels = [];
+  var avgScores = [];
+
+  var avgScoresObjects = chartScoreAverage(typeArray, drinkArray);
 
 
-  for(var i = 0; i < drinkArray.length; i++){
-
+  for(let i = 0; i < avgScoresObjects.length; i++){
+    avgScores.push(avgScoresObjects[i].avg);
+    labels.push(avgScoresObjects[i].name);
   }
 
-
   data.labels = labels;
+  data.data = avgScores;
   
   var myBarChart = new Chart(ctx, {
     type: 'bar',
@@ -56,6 +60,7 @@ function chartScoreAverage(typeArray, drinkArray){
   return scores;
 }
 
+//constructor for aggregating the data of specific varieties of beverage
 var TypeScore = function(label){
   this.type = label;
   this.totalScore = 0;
@@ -66,6 +71,48 @@ var TypeScore = function(label){
 TypeScore.prototype.generateAverage = function() {
   this.avg = this.totalScore / this.count;
 };
+
+//uses global vars to populate the renderChart attriutes
+function renderBeers(){
+  renderChart(beerTypes, Addbeer.beerDrink);
+}
+
+//uses global vars to populate the renderChart attriutes
+
+function renderWines(){
+  renderChart(wineTypes, Addwine.wineDrink);
+}
+
+//this will take in arrays of label arrays, array of object arrays
+//concatenate them in to one massive array for each, then return them for use in
+//rendering a complete chart
+function concatLabelAndObjectArrays(labelArrayArrays, objectArrayArrays){
+  var variety = [];
+  var drinks = [];
+  for(let x = 0; x < labelArrayArrays.length; x++){
+    for(let y = 0; y < labelArrayArrays[x].length; x++){
+      variety.push(labelArrayArrays[x][y]);
+    }
+  }
+
+  for(let x = 0; x < objectArrayArrays.length; x++){
+    for(let y = 0; y < objectArrayArrays[x].length; x++){
+      drinks.push(labelArrayArrays[x][y]);
+    }
+  }
+
+  return [variety, drinks];
+
+}
+
+
+//calls a function to get a concatenated list of beer/wine types and returns that as a single array
+//does the same for all examples of beer/wine
+//then invokes the render chart
+function renderBeerAndWine(){
+  var fullTableObjects = concatLabelAndObjectArrays([beerTypes, wineTypes], [Addbeer.beerDrink, Addwine.wineDrink]);
+  renderChart(fullTableObjects[0], fullTableObjects[1]);
+}
 
 //this is testing code for the chartScoreAverage function
 //we can delete later after we confirm that objects are being built correctly
