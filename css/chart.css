@@ -1,7 +1,6 @@
 #subText{
     width: 960px;
     margin-left: 250px;
-
 }
 
 nav {
@@ -24,7 +23,7 @@ p {
     width: 960px;
     margin: 0 auto;
     /* padding: 60px; */
-    max-height: 300px;
+    max-height: 300px; /* ARE WE SURE WE WANT THIS???? */
     background-color: white;
     border-radius: 10px;
     margin-top: 40px;
@@ -38,13 +37,32 @@ p {
 
 main {
     /* background-color: white; */
-    height: 450px;
+    /* height: 450px; */
     background-image: url("../assets/bar.jpg");
     background-repeat: repeat-x;
     z-index: -1;
+    min-height: 750px;
+    overflow: auto;
 }
 
 #btn2{
     background-color: #67140b;
     border-bottom: 3px solid #e5951a;
 }
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }
+
+  header{
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+  }
