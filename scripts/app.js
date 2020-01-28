@@ -56,6 +56,16 @@ function getStorageBeer(){
   }
 }
 
+//event listener for login
+function handleLogin(event) {
+  event.preventDefault();
+  console.log('hi');
+  var username = event.target.username.value;
+  console.log(event.target.username);
+  console.log(`User signed in as ${username}`);
+}
 
+//add event listener to login
+var loginForm = document.getElementById('login');
 
-
+loginForm.addEventListener('submit', handleLogin);
