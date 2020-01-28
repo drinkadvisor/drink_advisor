@@ -1,42 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' href='./css/reset.css'>
-  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Lato&display=swap" rel="stylesheet">
-  <link rel='stylesheet' href='./css/styleGuide.css'>
-  <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Lemonada|PT+Serif&display=swap" rel="stylesheet">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='./css/reset.css'>
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Lato&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='./css/styleGuide.css'>
+    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Lemonada|PT+Serif&display=swap" rel="stylesheet">
+    <title>Document</title>
 </head>
+
 <body>
-  <header>
-    <div id='subText'>
-      <img id='logo' src="./assets/drinkadvisorLogo.png">
-      <h1>Drink Advisor</h1>
-      <h3>Alcohol and Statistics: Together At Last</h3>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="charts.html">Charts</a></li>
-          <li><a href="aboutUs.html">About Us</a><li>
-        </ul>
-      </nav>
-      <form id="login">
-        <label>Login:</label>
-        <input id="usernameInput" name="username" type="string" required="required" placeholder="Username">
-      </form>
-    </div>
-  </header>
-  
-  <footer>
-    <div>
-      <address>
-        Codefellows: Class Of Seattle - 201d58 - Team Boo Berry
-      </address>
-    </div>
-  </footer>
-  <script src="scripts/app.js"></script>
+    <header>
+        <div id='subText'>
+            <img id='logo' src="./assets/drinkadvisorLogo.png">
+            <h1>Drink Advisor</h1>
+            <h3>Alcohol and Statistics: Together At Last</h3>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="charts.html">Charts</a></li>
+                    <li><a href="aboutUs.html">About Us</a>
+                    <li>
+                </ul>
+            </nav>
+            <form id="login">
+                <label>Login:</label>
+                <input id="usernameInput" name="username" type="string" required="required" placeholder="Username">
+            </form>
+        </div>
+    </header>
+    <main>
+        <form id="add-drink">
+            <fieldset>
+              <legend>New Beer</legend>
+              <label>Name</label>
+              <input name="name" type="text">
+              <label>ABV</label>
+              <input name="abv" type="text">
+              <label>Type</label>
+              <input name="type" type="text">
+              <br></br>
+              <label>Notes</label>
+              <input name="writtenNotes" type="text">
+              <label>Score</label>
+              <input name="score" type="text">
+            </fieldset>
+            <button type="submit">Add New Drink</button>
+          </form>
+        <div>
+            <table>
+                <thead id='table-head'></thead>
+                <tbody id='table-body'></tbody>
+                <tfoot id='table-foot'></tfoot>
+              </table>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <address>
+                Codefellows: Class Of Seattle - 201d58 - Team Boo Berry
+            </address>
+        </div>
+    </footer>
+    <script src="scripts/app.js"></script>
 </body>
+
 </html>
