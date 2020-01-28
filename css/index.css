@@ -1,11 +1,13 @@
-/* main {
-    width: 960px;
+header{
+    width: 100%;
     margin: 0 auto;
-} */
+}
 
-/* * {
-    border: 3px solid white;
-} */
+#subText{
+    width: 960px;
+    margin-left: 250px;
+
+}
 
 p {
     width: 960px;
@@ -25,8 +27,10 @@ p {
 }
 
 #login{
-    margin-left: 0px;
-    padding-left: 0%;
+    display: inline-block ;
+   
+    /* margin-left: 0px;
+    padding-left: 0%; */
 }
 
 main {
