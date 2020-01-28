@@ -2,7 +2,7 @@
 arguments: context, bev type array for labels, drink object array
 if you want to combine wine/beer then combine the label 
 arrays and drink object arrays to pass them in
-*/
+*/ 
 //this needs more functions to run, just a placeholder
 function renderChart(ctx, typeArray, drinkArray){
   var data = {};
