@@ -1,9 +1,11 @@
 'use strict';
 
-console.log('Hello World!');
+var headerArray = [' Name ', ' ABV ', ' Type ', ' Written Notes ', ' Score (out of 10) '];
+var value = ['name', 'abv', 'type', 'writtenNotes', 'score'];
 
 //global vars for core data
 var currentUser;
+
 Addbeer.beerDrink = [];
 Addwine.wineDrink = [];
 var username = null;
@@ -105,6 +107,7 @@ function getStorageBeer() {
   }
 }
 
+
 //get user from LS
 function getStorageUser() {
   var currentUser = localStorage.getItem('user');
@@ -141,6 +144,57 @@ function handleLogin(event) {
   hideLogin();
 }
 
+
+//add event listener to login
+var loginForm = document.getElementById('login');
+loginForm.addEventListener('submit', handleLogin);
+
+//var x = new Addbeer('corona', '5%', 'lager', 'I mean its beer with lime usually', '2.5');
+//console.log(x);
+//console.log(Addbeer.beerDrink);
+
+var drinkHeader = document.getElementById('table-head');
+var drinkBody = document.getElementById('table-body');
+
+var createHeader = function () {
+  for (var x = 0; x < headerArray.length; x++) {
+    var categories = document.createElement('th');
+    categories.textContent = headerArray[x];
+    drinkHeader.appendChild(categories);
+  }
+};
+//Need to create seperate tr function;
+
+Addbeer.prototype.tableRow = function(){
+
+  var tableRow = document.createElement('tr');
+  drinkBody.appendChild(tableRow);
+  tableRow.id = this.name;
+
+  this.rowData();
+};
+
+Addbeer.prototype.rowData = function () {
+
+  for (var i = 0; i < headerArray.length; i++) {
+    var userDrinkData = document.createElement('td');
+    userDrinkData.textContent = this[value[i]];
+
+    var row = document.getElementById(this.name);
+    row.appendChild(userDrinkData);
+  }
+};
+
+new Addbeer(' Corona ', ' 5% ', 'Lager ', 'nothing special ', '5/10 ');
+new Addbeer('abcc', 'dasdasd', 'asdasd', 'asdasd', '5');
+createHeader();
+
+for (var i = 0; i < Addbeer.beerDrink.length; i++) {
+  Addbeer.beerDrink[i].tableRow();
+}
+
+
+
 function handleLogout(event) {
   event.preventDefault();
   console.log(`${username} logged out`);
@@ -159,4 +213,5 @@ var loginForm = document.getElementById('login');
 var logoutButton = document.getElementById('logout');
 loginForm.addEventListener('submit', handleLogin);
 logoutButton.addEventListener('click', handleLogout);
+
 
