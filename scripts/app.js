@@ -119,14 +119,49 @@ function getStorage() {
   getStorageUser();
 }
 
-//util to clear storage
-function clearStorage() {
-  localStorage.clear();
-}
 
-//hide login
-function hideLogin() {
-  loginForm.setAttribute('style', 'display: none');
+//var x = new Addbeer('corona', '5%', 'lager', 'I mean its beer with lime usually', '2.5');
+//console.log(x);
+//console.log(Addbeer.beerDrink);
+
+var drinkHeader = document.getElementById('table-head');
+var drinkBody = document.getElementById('table-body');
+
+var createHeader = function () {
+  for (var x = 0; x < headerArray.length; x++) {
+    var categories = document.createElement('th');
+    categories.textContent = headerArray[x];
+    drinkHeader.appendChild(categories);
+  }
+};
+//Need to create seperate tr function;
+
+Addbeer.prototype.tableRow = function(){
+  
+  var tableRow = document.createElement('tr');
+  drinkBody.appendChild(tableRow);
+  tableRow.id = this.name;
+  
+  this.rowData();
+};
+
+Addbeer.prototype.rowData = function () {
+  
+  for (var i = 0; i < headerArray.length; i++) {
+    var userDrinkData = document.createElement('td');
+    userDrinkData.textContent = this[value[i]];
+    
+    var row = document.getElementById(this.name);
+    row.appendChild(userDrinkData);
+  }
+};
+
+new Addbeer(' Corona ', ' 5% ', 'Lager ', 'nothing special ', '5/10 ');
+new Addbeer('abcc', 'dasdasd', 'asdasd', 'asdasd', '5');
+createHeader();
+
+for (var i = 0; i < Addbeer.beerDrink.length; i++) {
+  Addbeer.beerDrink[i].tableRow();
 }
 
 //event listener for login
@@ -138,14 +173,22 @@ function handleLogin(event) {
     currentUser = new User(username, 999);
   }
   updateStorage();
-  hideLogin();
+  loginForm.setAttribute('style', 'display: none');
+  welcome.setAttribute('style', 'display: inline-block');
+
 }
 
-function handleLogout(event) {
-  event.preventDefault();
-  console.log(`${username} logged out`);
+//util to clear storage
+function clearStorage() {
+  localStorage.clear();
+}
+
+//event listener for logout
+function handleLogout() {
+  console.log(`${currentUser.name} logged out`);
   clearStorage();
   loginForm.setAttribute('style', 'display: inline-block');
+  welcome.setAttribute('style', 'display: none');
 }
 
 //test block
@@ -156,6 +199,6 @@ console.log(Addbeer.beerDrink);
 //adding event listeners for login/logout
 var loginForm = document.getElementById('login');
 var logoutButton = document.getElementById('logout');
+var welcome = document.getElementById('welcome');
 loginForm.addEventListener('submit', handleLogin);
 logoutButton.addEventListener('click', handleLogout);
-
