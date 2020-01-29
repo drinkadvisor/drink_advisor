@@ -51,6 +51,7 @@ a {
 #logo {
   float: left;
   height: 90px;
+  margin-left: 100px;
 }
 
 nav {
