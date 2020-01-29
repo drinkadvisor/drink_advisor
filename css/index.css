@@ -1,4 +1,3 @@
-
 header{
     width: 100%;
     margin: 0 auto;
@@ -35,14 +34,40 @@ form{
 }
 
 #loginForm{
-    /* display: inline-block; */
-    float: right;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10000;
 }
 
 #login {
-    position: relative;
-    bottom: 18px;
-    right: 60px;
+    margin: auto;
+    padding: 20px 40px;
+    width: 40%;
+    height: fit-content;
+    top: 10%;
+    left: 30%;
+    background-color: #fff;
+    vertical-align: middle;
+}
+
+#usernameInput {
+    display: inline;
+    margin: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+#darken {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 50%;
+    z-index: 4;
 }
 
 #welcome{
@@ -59,8 +84,6 @@ form{
 #mainDiv {
     margin-top: 100px;
     background-image: url("../assets/beer.jpg");
- 
-    
 }
 
 main {
@@ -217,4 +240,17 @@ hr:before {
 
 form{
     padding-bottom: 200px;
+}
+
+main h1{
+    color: #e5951a;
+    padding: 25px;
+    padding-left: 35px;
+    width: 750px;
+    margin: 0 auto;
+    background-color: lightgray;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }

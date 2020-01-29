@@ -12,6 +12,14 @@ Addwine.wineDrink = [];
 var beerTypes = ['Lager', 'Ale', 'IPA', 'Pilsner', 'Witbier', 'Stout', 'Pale Ale', 'Porter', 'Brown', 'Red', 'Belgian'];
 var wineTypes = ['Chardonnay', 'Riesling', 'Pinot Grigio', 'Sauvignon Blanc', 'Cabernet Sauvignon', 'Pinot Noir', 'Syrah', 'Zinfandel', 'Malbec', 'Merlot'];
 
+//html element vars
+var htmlBody = document.getElementById('body');
+var loginForm = document.getElementById('login');
+var logoutButton = document.getElementById('logout');
+var welcome = document.getElementById('welcome');
+var welcomeMsg = document.getElementById('welcomeMsg');
+var htmlDarken = document.getElementById('darken');
+
 /*
 provide the ID of the <select> element and the array of options to populate to that <select> element
 arguments: <select> node id, array of strings
@@ -113,8 +121,9 @@ function getStorageBeer() {
 
 //get user from LS
 function getStorageUser() {
-  var currentUser = localStorage.getItem('user');
-  var parsedCurrentUser = JSON.parse(currentUser);
+  var currentUserString = localStorage.getItem('user');
+  var parsedCurrentUser = JSON.parse(currentUserString);
+  currentUser = parsedCurrentUser;
   return parsedCurrentUser;
 }
 
@@ -179,15 +188,56 @@ var addNewDrink = document.getElementById('add-drink');
 addNewDrink.addEventListener('submit', handleAddBeer);
 
 
+//var x = new Addbeer('corona', '5%', 'lager', 'I mean its beer with lime usually', '2.5');
+//console.log(x);
+//console.log(Addbeer.beerDrink);
+
+var drinkHeader = document.getElementById('table-head');
+var drinkBody = document.getElementById('table-body');
+
+var createHeader = function () {
+  for (var x = 0; x < headerArray.length; x++) {
+    var categories = document.createElement('th');
+    categories.textContent = headerArray[x];
+    drinkHeader.appendChild(categories);
+  }
+};
+//Need to create seperate tr function;
+
+Addbeer.prototype.tableRow = function(){
+
+  var tableRow = document.createElement('tr');
+  drinkBody.appendChild(tableRow);
+  tableRow.id = this.name;
+
+  this.rowData();
+};
+
+Addbeer.prototype.rowData = function () {
+
+  for (var i = 0; i < headerArray.length; i++) {
+    var userDrinkData = document.createElement('td');
+    userDrinkData.textContent = this[value[i]];
+
+    var row = document.getElementById(this.name);
+    row.appendChild(userDrinkData);
+  }
+};
+
+
 function showWelcome() {
   loginForm.setAttribute('style', 'display: none');
   welcome.setAttribute('style', 'display: inline-block');
+  htmlBody.setAttribute('style', 'height: auto; overflow: scroll');
+  htmlDarken.setAttribute('style', 'display: none');
   welcomeMsg.textContent = `Welcome, ${currentUser.name}`;
 }
 
 function showLogin() {
-  loginForm.setAttribute('style', 'display: inline-block');
+  loginForm.setAttribute('style', 'display: fixed');
   welcome.setAttribute('style', 'display: none');
+  htmlDarken.setAttribute('style', 'display: block');
+  htmlBody.setAttribute('style', 'height: 100vh; overflow: hidden');
   welcomeMsg.textContent = '';
 }
 
@@ -212,12 +262,18 @@ function handleLogout(event) {
   showLogin();
 }
 
+function checkLogin() {
+  if(getStorageUser()) {
+    getStorageUser();
+    showWelcome();
+  } else {
+    showLogin();
+  }
+}
+
 createHeader();
+checkLogin();
 
 //adding event listeners for login/logout
-var loginForm = document.getElementById('login');
-var logoutButton = document.getElementById('logout');
-var welcome = document.getElementById('welcome');
-var welcomeMsg = document.getElementById('welcomeMsg');
 loginForm.addEventListener('submit', handleLogin);
 logoutButton.addEventListener('click', handleLogout);
