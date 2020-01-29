@@ -15,6 +15,7 @@ var wineTypes = ['Chardonnay', 'Riesling', 'Pinot Grigio', 'Sauvignon Blanc', 'C
 //html element vars
 var htmlBody = document.getElementById('body');
 var loginForm = document.getElementById('login');
+var loginContainer = document.getElementById('loginForm');
 var logoutButton = document.getElementById('logout');
 var welcome = document.getElementById('welcome');
 var welcomeMsg = document.getElementById('welcomeMsg');
@@ -164,7 +165,10 @@ Addbeer.prototype.rowData = function () {
     var row = document.getElementById(this.name);
     row.appendChild(userDrinkData);
   }
+  var deleteButton = document.createElement('button');
+  row.appendChild(deleteButton);
 };
+
 
 for (var i = 0; i < Addbeer.beerDrink.length; i++) {
   Addbeer.beerDrink[i].tableRow();
@@ -183,50 +187,14 @@ function handleAddBeer(event) {
 
   newBeer.tableRow();
 }
+
 // Button for add drink
-var addNewDrink = document.getElementById('add-drink');
+var addNewDrink = document.getElementById('beer-drink');
 addNewDrink.addEventListener('submit', handleAddBeer);
 
 
-//var x = new Addbeer('corona', '5%', 'lager', 'I mean its beer with lime usually', '2.5');
-//console.log(x);
-//console.log(Addbeer.beerDrink);
-
-var drinkHeader = document.getElementById('table-head');
-var drinkBody = document.getElementById('table-body');
-
-var createHeader = function () {
-  for (var x = 0; x < headerArray.length; x++) {
-    var categories = document.createElement('th');
-    categories.textContent = headerArray[x];
-    drinkHeader.appendChild(categories);
-  }
-};
-//Need to create seperate tr function;
-
-Addbeer.prototype.tableRow = function(){
-
-  var tableRow = document.createElement('tr');
-  drinkBody.appendChild(tableRow);
-  tableRow.id = this.name;
-
-  this.rowData();
-};
-
-Addbeer.prototype.rowData = function () {
-
-  for (var i = 0; i < headerArray.length; i++) {
-    var userDrinkData = document.createElement('td');
-    userDrinkData.textContent = this[value[i]];
-
-    var row = document.getElementById(this.name);
-    row.appendChild(userDrinkData);
-  }
-};
-
-
 function showWelcome() {
-  loginForm.setAttribute('style', 'display: none');
+  loginContainer.setAttribute('style', 'display: none');
   welcome.setAttribute('style', 'display: inline-block');
   htmlBody.setAttribute('style', 'height: auto; overflow: scroll');
   htmlDarken.setAttribute('style', 'display: none');
@@ -234,7 +202,7 @@ function showWelcome() {
 }
 
 function showLogin() {
-  loginForm.setAttribute('style', 'display: fixed');
+  loginContainer.setAttribute('style', 'display: fixed');
   welcome.setAttribute('style', 'display: none');
   htmlDarken.setAttribute('style', 'display: block');
   htmlBody.setAttribute('style', 'height: 100vh; overflow: hidden');
@@ -262,6 +230,24 @@ function handleLogout(event) {
   showLogin();
 }
 
+
+function toggleForm(event) {
+  var formChoose = event.target.id;
+  console.log(formChoose);
+  if(formChoose === 'beer'){
+    dropdownOptions('beer-selector', beerTypes);
+    document.getElementById('wine-drink').setAttribute('style','display:none');
+    document.getElementById('beer-drink').setAttribute('style','display:block');
+  }else if (formChoose === 'wine'){
+    dropdownOptions('wine-selector', wineTypes);
+    document.getElementById('beer-drink').setAttribute('style','display:none');
+    document.getElementById('wine-drink').setAttribute('style','display:block');
+  }
+
+}
+
+
+
 function checkLogin() {
   if(getStorageUser()) {
     getStorageUser();
@@ -271,9 +257,13 @@ function checkLogin() {
   }
 }
 
+
 createHeader();
 checkLogin();
 
 //adding event listeners for login/logout
 loginForm.addEventListener('submit', handleLogin);
 logoutButton.addEventListener('click', handleLogout);
+
+document.getElementById('beer').addEventListener('click', toggleForm);
+document.getElementById('wine').addEventListener('click', toggleForm);
