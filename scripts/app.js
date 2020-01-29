@@ -1,7 +1,7 @@
 'use strict';
 
 var headerArray = [' Name ', ' ABV ', ' Type ', ' Written Notes ', ' Score (out of 10) '];
-var value = ['name', 'abv', 'type', 'writtenNotes', 'score'];
+var value = ['name', 'abv', 'type', 'writtenNotes', 'score', ''];
 
 //global vars for core data
 var currentUser;
@@ -167,12 +167,37 @@ Addbeer.prototype.rowData = function () {
     row.appendChild(userDrinkData);
   }
   var deleteButton = document.createElement('button');
+  deleteButton.className = 'deleteButton';
+  deleteButton.setAttribute('bevName', this.name);
   row.appendChild(deleteButton);
+  deleteListener();
 };
 
 
 for (var i = 0; i < Addbeer.beerDrink.length; i++) {
   Addbeer.beerDrink[i].tableRow();
+}
+
+//Event for Delete Button
+function deleteListener() {
+  var deleteButton = document.getElementsByClassName('deleteButton');
+  for(var x = 0; x < deleteButton.length; x++){
+
+    deleteButton[x].addEventListener('click', handleDelete);
+  }
+}
+
+function handleDelete(event){
+  event.preventDefault();
+  var deleteRow = event.target.getAttribute('bevName');
+  document.getElementById(deleteRow).remove();
+
+  for(var n = 0; n < Addbeer.beerDrink.length; n++){
+    if(Addbeer.beerDrink[n].name === deleteRow){
+      Addbeer.beerDrink.splice(n, 1);
+      updateStorageBeer();
+    }
+  }
 }
 //event listener for add drink
 function handleAddBeer(event) {
@@ -187,6 +212,7 @@ function handleAddBeer(event) {
   var newBeer = new Addbeer(name, abv, type, writtenNotes, score);
 
   newBeer.tableRow();
+  updateStorageBeer();
 }
 
 // Button for add drink
