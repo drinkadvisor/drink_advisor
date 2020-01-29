@@ -21,6 +21,10 @@ arguments: <select> node id, array of strings
 function dropdownOptions(selectID, optionArray){
   var selectTag = document.getElementById(selectID);
   selectTag.options.length = 0;
+  let defaultOption = document.createElement('option');
+  defaultOption.innerText = 'Beverage Varietal...';
+  defaultOption.value = '';
+  selectTag.appendChild(defaultOption);
 
   for(var optioni = 0; optioni < optionArray.length; optioni++){
     let option = document.createElement('option');

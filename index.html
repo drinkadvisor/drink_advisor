@@ -52,17 +52,14 @@
               <legend>New Beer</legend>
               <label>Name</label>
               <input name="name" type="text">
-              <label>Type</label>
-              <input name="type" type="text">
+              <select name='type'>Type</select>
+              <!-- <input name="type" type="text"> -->
               <label>ABV</label>
-              <input name="abv" type="number" step=".1" id="abv">
+              <input name="abv" type="number" id="abv" step=".1"  max="95" min="0">
               <label>Score</label>
-              <input name="score" type="number" id="score">
+              <input name="score" type="number" id="score" step=".5" min="0" max="10">
               <br></br>
-              <!-- <label>Notes</label>
-              <input name="writtenNotes" type="text"> -->
-              <!-- <input name="writtenNotes" type="text"> -->
-              <textarea placeholder="Tasting notes..."></textarea>
+              <input id='notesArea' name="writtenNotes" type="text" placeholder="Tasting notes...">
             </fieldset>
             <button type="submit">Add New Drink</button>
           </form>
