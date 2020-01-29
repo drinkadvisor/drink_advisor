@@ -218,3 +218,15 @@ hr:before {
 form{
     padding-bottom: 200px;
 }
+
+main h1{
+    color: #e5951a;
+    padding-top: 50px;
+    width: 750px;
+    margin: 0 auto;
+    background-color: lightgray;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 250px;
+
+}

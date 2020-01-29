@@ -29,10 +29,11 @@ footer {
 main h1{
       color: #e5951a;
       padding-top: 50px;
-      width: 400px;
+      width: 750px;
       margin: 0 auto;
       background-color: lightgray;
       border-radius: 10px;
+      overflow: hidden;
 
   }
 
@@ -51,7 +52,7 @@ p {
     max-height: 300px; /* ARE WE SURE WE WANT THIS???? */
     background-color: white;
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 10px;
     box-shadow: 0 0 20px #67140b;
     position: absolute;
     top: 50%;
@@ -67,7 +68,7 @@ main {
     background-image: url("../assets/bar.jpg");
     background-repeat: repeat-x;
     z-index: -1;
-    min-height: 950px;
+    min-height: 750px;
     overflow: auto;
 }
 
