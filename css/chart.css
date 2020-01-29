@@ -33,6 +33,7 @@ p {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    height: 900px;
 }
 
 main {
@@ -41,7 +42,7 @@ main {
     background-image: url("../assets/bar.jpg");
     background-repeat: repeat-x;
     z-index: -1;
-    min-height: 750px;
+    min-height: 950px;
     overflow: auto;
 }
 
@@ -66,3 +67,5 @@ footer {
       width: 100%;
       z-index: 2;
   }
+
+ 
