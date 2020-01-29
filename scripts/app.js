@@ -165,7 +165,10 @@ Addbeer.prototype.rowData = function () {
     var row = document.getElementById(this.name);
     row.appendChild(userDrinkData);
   }
+  var deleteButton = document.createElement('button');
+  row.appendChild(deleteButton);
 };
+
 
 for (var i = 0; i < Addbeer.beerDrink.length; i++) {
   Addbeer.beerDrink[i].tableRow();
