@@ -44,17 +44,35 @@
     </header>
 <div id="mainDiv">
     <main>
-        <form id="add-drink">
+        <div id='formControl'>
+            <button id='beer'>Beer</button>
+            <button id='wine'>Wine</button>
+        </div>
+        <form id="beer-drink">
             <fieldset>
               <legend>New Beer</legend>
               <label>Name</label>
               <input name="name" type="text">
-              <select id='typeSelector' name='type'>Type</select>
-              <!-- <input name="type" type="text"> -->
+              <select id='beer-selector' name='type'>Type</select>
               <label>ABV</label>
-              <input name="abv" type="number" id="abv" step=".1"  max="95" min="0">
+              <input name="abv" type="number" step=".1"  max="95" min="0">
               <label>Score</label>
-              <input name="score" type="number" id="score" step=".5" min="0" max="10">
+              <input name="score" type="number" step=".5" min="0" max="10">
+              <br></br>
+              <input class='notesArea' name="writtenNotes" type="text" placeholder="Tasting notes...">
+            </fieldset>
+            <button type="submit">Add New Drink</button>
+          </form>
+          <form id="wine-drink">
+            <fieldset>
+              <legend>New Wine</legend>
+              <label>Name</label>
+              <input name="name" type="text">
+              <select id='wine-selector' name='type'>Type</select>
+              <label>ABV</label>
+              <input name="abv" type="number" step=".1"  max="95" min="0">
+              <label>Score</label>
+              <input name="score" type="number" step=".5" min="0" max="10">
               <br></br>
               <input id='notesArea' name="writtenNotes" type="text" placeholder="Tasting notes...">
             </fieldset>

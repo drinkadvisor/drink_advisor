@@ -183,7 +183,7 @@ function handleAddBeer(event) {
   newBeer.tableRow();
 }
 // Button for add drink
-var addNewDrink = document.getElementById('add-drink');
+var addNewDrink = document.getElementById('beer-drink');
 addNewDrink.addEventListener('submit', handleAddBeer);
 
 
@@ -256,6 +256,22 @@ function handleLogout(event) {
   showLogin();
 }
 
+function toggleForm(event) {
+  var formChoose = event.target.id;
+  console.log(formChoose);
+  if(formChoose === 'beer'){
+    dropdownOptions('beer-selector', beerTypes);
+    document.getElementById('wine-drink').setAttribute('style','display:none');
+    document.getElementById('beer-drink').setAttribute('style','display:block');
+  }else if (formChoose === 'wine'){
+    dropdownOptions('wine-selector', wineTypes);
+    document.getElementById('beer-drink').setAttribute('style','display:none');
+    document.getElementById('wine-drink').setAttribute('style','display:block');
+  }
+
+}
+
+
 createHeader();
 
 //adding event listeners for login/logout
@@ -265,3 +281,6 @@ var welcome = document.getElementById('welcome');
 var welcomeMsg = document.getElementById('welcomeMsg');
 loginForm.addEventListener('submit', handleLogin);
 logoutButton.addEventListener('click', handleLogout);
+
+document.getElementById('beer').addEventListener('click', toggleForm);
+document.getElementById('wine').addEventListener('click', toggleForm);

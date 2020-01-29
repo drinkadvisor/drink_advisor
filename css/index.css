@@ -15,19 +15,17 @@ p {
     line-height: 20px;
 }
 
-#add-drink {
+#beer-drink, #wine-drink {
     width: 960px;
     margin: 0 auto;
     padding: 2em;
     margin-top: 5em;
     margin-bottom: 5em;
-
     border-radius: 10px;
     box-shadow: 0 0 20px #67140b;
-   
     background-color: white;
-
     overflow: auto;
+    display: none;
 }
 
 form{
