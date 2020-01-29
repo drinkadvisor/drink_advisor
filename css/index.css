@@ -221,12 +221,13 @@ form{
 
 main h1{
     color: #e5951a;
-    padding-top: 50px;
+    padding: 25px;
+    padding-left: 35px;
     width: 750px;
     margin: 0 auto;
     background-color: lightgray;
     border-radius: 10px;
     overflow: hidden;
-    margin-left: 250px;
-
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
