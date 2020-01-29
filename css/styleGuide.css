@@ -111,8 +111,8 @@ label {
 }
 
 footer {
-  position:absolute;
-  display:fixed;
+  position: relative;;
+  /* display:fixed; */
   width: 100%;
   background-color: #f5f5dc;
   height: 50px;
