@@ -8,7 +8,6 @@ var currentUser;
 
 Addbeer.beerDrink = [];
 Addwine.wineDrink = [];
-var username = null;
 
 var beerTypes = ['Lager', 'Ale', 'IPA', 'Pilsner', 'Witbier', 'Stout', 'Pale Ale', 'Porter', 'Brown', 'Red', 'Belgian'];
 var wineTypes = ['Chardonnay', 'Riesling', 'Pinot Grigio', 'Sauvignon Blanc', 'Cabernet Sauvignon', 'Pinot Noir', 'Syrah', 'Zinfandel', 'Malbec', 'Merlot'];
@@ -220,35 +219,39 @@ Addbeer.prototype.rowData = function () {
   }
 };
 
-for (var i = 0; i < Addbeer.beerDrink.length; i++) {
-  Addbeer.beerDrink[i].tableRow();
-}
-
-//event listener for login
-function handleLogin(event) {
-  event.preventDefault();
-  var username = event.target.username.value;
-  console.log(`User signed in as ${username}`);
-  if (username !== getStorageUser()) {
-    currentUser = new User(username, 999);
-  }
-  updateStorage();
-  showWelcome();
-}
-
 function showWelcome() {
   loginForm.setAttribute('style', 'display: none');
   welcome.setAttribute('style', 'display: inline-block');
   welcomeMsg.textContent = `Welcome, ${currentUser.name}`;
 }
 
-function handleLogout(event) {
-  event.preventDefault();
-  console.log(`${username} logged out`);
-  localStorage.clear();
+function showLogin() {
   loginForm.setAttribute('style', 'display: inline-block');
   welcome.setAttribute('style', 'display: none');
+  welcomeMsg.textContent = '';
 }
+
+//event listener for login
+function handleLogin(event) {
+  event.preventDefault();
+  var usernameInput = event.target.username.value;
+  console.log(`User logging in as ${usernameInput}...`);
+  if (usernameInput !== getStorageUser()) {
+    currentUser = new User(usernameInput, 999);
+  }
+  console.log(`${currentUser.name} logged in`);
+  updateStorage();
+  event.target.username.value = null;
+  showWelcome();
+}
+
+function handleLogout(event) {
+  event.preventDefault();
+  console.log(`${currentUser.name} logged out`);
+  localStorage.clear();
+  showLogin();
+}
+
 createHeader();
 
 //adding event listeners for login/logout
