@@ -28,10 +28,11 @@ body {
 header {
   display:fixed;
   width: 100%;
-  background-color: #f4460b;
+  background-color: #f5f5dc;
   height: 100px;
   position:absolute;
   top: 0;
+
 }
 
 a {
@@ -112,9 +113,10 @@ footer {
   position:absolute;
   display:fixed;
   width: 100%;
-  background-color: #f4460b;
+  background-color: #f5f5dc;
   height: 50px;
   bottom:0px;
+  
 }
 
 address {
@@ -122,4 +124,6 @@ address {
     text-align: center;
     margin: auto;
     padding-top: 1%;
+    color: #67140b;
+    font-weight: bold;
 }

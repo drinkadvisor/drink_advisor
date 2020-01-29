@@ -17,7 +17,7 @@
 </head>
 
 <body >
-
+    <div class="wrapper">
     <header>
         <div id='subText'>
             <img id='logo' src="./assets/drinkadvisorLogo.png">
@@ -62,18 +62,27 @@
               <input name="writtenNotes" type="text">
               <!-- <input name="writtenNotes" type="text"> -->
               <textarea placeholder="Tasting notes..."></textarea>
-             
+           
             </fieldset>
             <button type="submit">Add New Drink</button>
           </form>
-        <div>
+        <div id="divOuter">
+          <div id="divider">
+            <br>
+            <hr>
+           </div>
+        </div>
+        <div id="drinkTable">
             <table>
                 <thead id='table-head'></thead>
                 <tbody id='table-body'></tbody>
               </table>
         </div>
     </main>
-    <footer>
+
+    <div class="push"></div>
+</div>
+<footer class="footer">
         <div>
             <address>
                 Codefellows: Class Of Seattle - 201d58 - Team Boo Berry
