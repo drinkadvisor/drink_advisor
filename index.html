@@ -10,75 +10,112 @@
     <link rel='stylesheet' href='./css/styleGuide.css'>
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Lemonada|PT+Serif&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='./css/index.css'>
-    <title>Homepage</title>
-
     <link rel='stylesheet' href='./css/Table.css'>
-
+    <title>Homepage</title>
 </head>
 
-<body >
-
+<body id="body">
+    <div class="wrapper">
+    <div id="darken"></div>
+    <div id="loginForm">
+        <h3>Please login to start tracking beverages</h3>
+        <form id="login">
+            <fieldset>
+                <p>
+                    <input id="usernameInput" name="username" type="string" required="required" placeholder="Username">
+                    <button type="submit" name="addName">Login</button>
+                </p>
+                <p>
+                    <input id="ageCheck" type="checkbox" name="ageCheck">
+                    <label id="ageLabel">I am over 21 years old</label>
+                </p>
+            </fieldset>
+        </form>
+    </div>
     <header>
         <div id='subText'>
             <img id='logo' src="./assets/drinkadvisorLogo.png">
             <h1>Drink Advisor</h1>
             <h3>Alcohol and Statistics: Together At Last</h3>
-
             <nav>
                 <div id="myDIV">
-                <ul>
-                    <li><a href="index.html" class="target" id="btn1">Home</a></li>
-                    <li><a href="charts.html" class="target">Charts</a></li>
-                    <li><a href="aboutUs.html" class="target">About Us</a><li>
-                </ul>
-            </div>
+                    <ul>
+                        <li><a href="index.html" class="target" id="btn1">Home</a></li>
+                        <li><a href="charts.html" class="target">Charts</a></li>
+                        <li><a href="aboutUs.html" class="target">About Us</a><li>
+                    </ul>
+                </div>
             </nav>
-
-            <form id="login">
-                <label>Login:</label>
-                <input id="usernameInput" name="username" type="string" required="required" placeholder="Username">
-                <button type='submit' name='addName'>Are You 21+?</button>
-            </form>
-
+            <div id="welcome">
+                <p id="welcomeMsg"></p>
+                <button id="logout" type="button" name="logout">Logout</button>
+            </div>
         </div>
     </header>
-
+<div id="mainDiv">
+    <div>
+        <h1>"With a few drinks, our smiles are not forced, our laughs are not faked, indeed, <em>in vino caritas</em>."</h1>
+    </div>
     <main>
+        <div id='formControl'>
+            <button id='beer'>Beer</button>
+            <button id='wine'>Wine</button>
+        </div>
+        <form id="beer-drink">
         <form id="add-drink">
             <fieldset>
               <legend>New Beer</legend>
               <label>Name</label>
               <input name="name" type="text">
-              <label>Type</label>
-              <input name="type" type="text">
+              <select id='beer-selector' name='type'>Type</select>
               <label>ABV</label>
-              <input name="abv" type="number" id="abv">
+              <input name="abv" type="number" step=".1"  max="95" min="0">
               <label>Score</label>
-              <input name="score" type="number" id="score">
+              <input name="score" type="number" step=".5" min="0" max="10">
               <br></br>
-              <label>Notes</label>
-              <!-- <input name="writtenNotes" type="text"> -->
-              <textarea placeholder="Tasting notes..."></textarea>
-             
+              <input class='notesArea' name="writtenNotes" type="text" placeholder="Tasting notes...">
             </fieldset>
             <button type="submit">Add New Drink</button>
           </form>
-        <div>
-            <table>
-                <thead id='table-head'></thead>
-                <tbody id='table-body'></tbody>
-              </table>
+          <form id="wine-drink">
+            <fieldset>
+              <legend>New Wine</legend>
+              <label>Name</label>
+              <input name="name" type="text">
+              <select id='wine-selector' name='type'>Type</select>
+              <label>ABV</label>
+              <input name="abv" type="number" step=".1"  max="95" min="0">
+              <label>Score</label>
+              <input name="score" type="number" step=".5" min="0" max="10">
+              <br></br>
+              <input id='notesArea' name="writtenNotes" type="text" placeholder="Tasting notes...">
+            </fieldset>
+            <button type="submit">Add New Drink</button>
+          </form>
         </div>
-    </main>
-    <footer>
+            <div id="divOuter">
+                <div id="divider">
+                    <br>
+                    <hr>
+                </div>
+            </div>
+            <div id="outerDrinkTable">
+                <div id="drinkTable">
+                    <table>
+                        <thead id='table-head'></thead>
+                        <tbody id='table-body'></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="footer">
         <div>
             <address>
                 Codefellows: Class Of Seattle - 201d58 - Team Boo Berry
             </address>
         </div>
     </footer>
-    <script src="scripts/app.js">       
-    </script>
+    <script src="scripts/app.js"></script>
 </body>
-
 </html>

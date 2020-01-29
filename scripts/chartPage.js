@@ -8,7 +8,11 @@ function renderChart(ctx, typeArray, drinkArray){
   var data = {};
   var labels = [];
   var avgScores = [];
-
+  var bgColors = [];
+  // var options = {};
+  // data.datasets = {};
+  // options.legend = {};
+  // options.title = {};
   var avgScoresObjects = chartScoreAverage(typeArray, drinkArray);
 
 
@@ -17,14 +21,34 @@ function renderChart(ctx, typeArray, drinkArray){
     labels.push(avgScoresObjects[i].name);
   }
 
-  data.labels = labels;
-  data.data = avgScores;
-  
-  var myBarChart = new Chart(ctx, {
+  for(let x = 0; x < avgScores.length; x++){
+    bgColors.push('#3e95cd');
+  }
+
+  var myChart = new Chart(ctx, {
     type: 'bar',
-    data: data,
-    options: options
-});
+    data: {
+      labels: typeArray,
+      datasets: [{
+        label: 'Average Score',
+        data: avgScores,
+        backgroundColor: bgColors,
+        borderColor: 'black',
+        borderWidth: 1,
+      }],
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            suggestedMax: 10,
+          },
+        }],
+      },
+    },
+  });
+
 }
 
 
@@ -35,7 +59,6 @@ from every drink and then averaged before being returned.
 This is intended to be used with the renderChart function to populate the chart data
 */
 function chartScoreAverage(typeArray, drinkArray){
-
   var scores = [];
 
   for(var labelSeed = 0; labelSeed < typeArray.length; labelSeed++){
@@ -73,14 +96,14 @@ TypeScore.prototype.generateAverage = function() {
 };
 
 //uses global vars to populate the renderChart attriutes
-function renderBeers(){
-  renderChart(beerTypes, Addbeer.beerDrink);
+function renderBeers(ctx){
+  renderChart(ctx, beerTypes, Addbeer.beerDrink);
 }
 
 //uses global vars to populate the renderChart attriutes
 
-function renderWines(){
-  renderChart(wineTypes, Addwine.wineDrink);
+function renderWines(ctx){
+  renderChart(ctx, wineTypes, Addwine.wineDrink);
 }
 
 //this will take in arrays of label arrays, array of object arrays
@@ -89,6 +112,7 @@ function renderWines(){
 function concatLabelAndObjectArrays(labelArrayArrays, objectArrayArrays){
   var variety = [];
   var drinks = [];
+
   for(let x = 0; x < labelArrayArrays.length; x++){
     for(let y = 0; y < labelArrayArrays[x].length; x++){
       variety.push(labelArrayArrays[x][y]);
@@ -102,41 +126,47 @@ function concatLabelAndObjectArrays(labelArrayArrays, objectArrayArrays){
   }
 
   return [variety, drinks];
-
 }
 
 
 //calls a function to get a concatenated list of beer/wine types and returns that as a single array
 //does the same for all examples of beer/wine
 //then invokes the render chart
-function renderBeerAndWine(){
+function renderBeerAndWine(ctx){
   var fullTableObjects = concatLabelAndObjectArrays([beerTypes, wineTypes], [Addbeer.beerDrink, Addwine.wineDrink]);
-  renderChart(fullTableObjects[0], fullTableObjects[1]);
+  renderChart(ctx, fullTableObjects[0], fullTableObjects[1]);
 }
+
 
 //this is testing code for the chartScoreAverage function
 //we can delete later after we confirm that objects are being built correctly
 //and we get a console log showing as much
-// var labs = ['foo', 'bar'];
+var labs = ['foo', 'bar'];
 
-// var a = {
-//   name: 'test1',
-//   type: 'foo',
-//   score: 3, 
-// };
+var a = {
+  name: 'test1',
+  type: 'foo',
+  score: 3, 
+};
 
-// var b = {
-//   name: 'test2',
-//   type: 'foo',
-//   score: 5,
-// };
+var b = {
+  name: 'test2',
+  type: 'foo',
+  score: 5,
+};
 
-// var c = {
-//   name: 'test3',
-//   type: 'bar',
-//   score: 10,
-// };
+var c = {
+  name: 'test3',
+  type: 'bar',
+  score: 10,
+};
 
-// var q = [a,b,c];
+var q = [a,b,c];
 
-// console.log(chartScoreAverage(labs, q));
+console.log(chartScoreAverage(labs, q));
+
+
+var ctx = document.getElementById('chartHook');
+
+renderChart(ctx, labs, q);
+

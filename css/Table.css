@@ -1,9 +1,16 @@
 table {
-    width: 600px;}
+    width: 600px;
+    margin: 0px auto;
+    margin-top: 10vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
   th, td {
-  padding: 7px 10px 10px 10px;}
+  padding: 7px 10px 10px 10px;
+}
   th {
   text-transform: uppercase; letter-spacing: 0.1em; font-size: 90%;
-  border-bottom: 2px solid #111111; border-top: 1px solid #999; text-align: left;}
-  tr.even {
-  background-color: #efefef;}
+  border-bottom: 2px solid #111111; border-top: 1px solid #999; text-align: left;
+}
+  tr:nth-child(odd) {
+  background-color: blanchedalmond;
+}

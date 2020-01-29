@@ -1,7 +1,6 @@
 #subText{
     width: 960px;
     margin-left: 250px;
-
 }
 
 header{
@@ -16,7 +15,6 @@ p {
     width: 960px;
     margin: 0 auto;
     line-height: 20px;
-    
 }
 
 #text {
@@ -33,10 +31,56 @@ main {
     /* background-color: white; */
     height: 450px;
     background-image: url("../assets/corks.jpg");
-    overflow: hidden;
+    overflow: auto;
 }
 
 #btn3{
     background-color: #67140b;
     border-bottom: 3px solid #e5951a;
+}
+
+main h1{
+    color: #e5951a;
+    padding: 25px;
+    padding-left: 35px;
+    width: 750px;
+    margin: 0 auto;
+    background-color: lightgray;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#quote {
+    color: #e5951a;
+    padding: 25px;
+    padding-left: 35px;
+    width: 750px;
+    margin: 0 auto;
+    background-color: lightgray;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    box-shadow: 0 0 20px #67140b;
+}
+
+#philosophy {
+    width: 960px;
+    margin: 0 auto;
+    padding: 60px;
+    border-radius: 10px;
+    margin-top: 100px;
+    box-shadow: 0 0 20px #67140b;
+    background-color: white;
+}
+
+h2 {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    color: #e5951a;
 }

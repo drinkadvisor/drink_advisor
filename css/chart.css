@@ -1,16 +1,44 @@
 #subText{
     width: 960px;
     margin-left: 250px;
-
 }
 
 nav {
     float: left;
 }
 
-header{
-    height: 130px;
-}
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    z-index: 20;
+  }
+
+  header{
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+      height: 130px;
+  }
+
+main h1{
+      color: #e5951a;
+      padding: 25px;
+      padding-left: 35px;
+      width: 750px;
+      margin: 0 auto;
+      background-color: lightgray;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 100px;
+      margin-bottom: 100px;
+
+  }
 
 
 p {
@@ -24,27 +52,51 @@ p {
     width: 960px;
     margin: 0 auto;
     /* padding: 60px; */
-    max-height: 300px;
+    max-height: 300px; /* ARE WE SURE WE WANT THIS???? */
     background-color: white;
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 10px;
     box-shadow: 0 0 20px #67140b;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    height: 900px;
 }
 
 main {
     /* background-color: white; */
-    height: 450px;
+    /* height: 450px; */
     background-image: url("../assets/bar.jpg");
     background-repeat: repeat-x;
     z-index: -1;
+    min-height: 750px;
+    overflow: auto;
 }
 
 #btn2{
     background-color: #67140b;
     border-bottom: 3px solid #e5951a;
 }
+
+/* 
+.chartjs-render-monitor{
+    height: 100px;
+} */
+ 
+.chart-container{
+    /* height:40vh; 
+    width:80vw; */
+    height: 400px;
+    width: 960px;
+    margin: 0 auto;
+    background-color: white;
+    overflow: auto;
+    margin-top: 125px;
+    border-radius: 10px;
+}
+
+/* #chartHook{
+    height: 100px;
+} */
