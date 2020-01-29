@@ -1,7 +1,7 @@
 'use strict';
 
 var headerArray = [' Name ', ' ABV ', ' Type ', ' Written Notes ', ' Score (out of 10) '];
-var value = ['name', 'abv', 'type', 'writtenNotes', 'score'];
+var value = ['name', 'abv', 'type', 'writtenNotes', 'score', ''];
 
 //global vars for core data
 var currentUser;
@@ -16,6 +16,7 @@ var wineTypes = ['Chardonnay', 'Riesling', 'Pinot Grigio', 'Sauvignon Blanc', 'C
 var htmlBody = document.getElementById('body');
 var loginForm = document.getElementById('login');
 var loginContainer = document.getElementById('loginForm');
+var loginChildren = loginContainer.getElementsByTagName('*');
 var logoutButton = document.getElementById('logout');
 var welcome = document.getElementById('welcome');
 var welcomeMsg = document.getElementById('welcomeMsg');
@@ -166,12 +167,37 @@ Addbeer.prototype.rowData = function () {
     row.appendChild(userDrinkData);
   }
   var deleteButton = document.createElement('button');
+  deleteButton.className = 'deleteButton';
+  deleteButton.setAttribute('bevName', this.name);
   row.appendChild(deleteButton);
+  deleteListener();
 };
 
 
 for (var i = 0; i < Addbeer.beerDrink.length; i++) {
   Addbeer.beerDrink[i].tableRow();
+}
+
+//Event for Delete Button
+function deleteListener() {
+  var deleteButton = document.getElementsByClassName('deleteButton');
+  for(var x = 0; x < deleteButton.length; x++){
+
+    deleteButton[x].addEventListener('click', handleDelete);
+  }
+}
+
+function handleDelete(event){
+  event.preventDefault();
+  var deleteRow = event.target.getAttribute('bevName');
+  document.getElementById(deleteRow).remove();
+
+  for(var n = 0; n < Addbeer.beerDrink.length; n++){
+    if(Addbeer.beerDrink[n].name === deleteRow){
+      Addbeer.beerDrink.splice(n, 1);
+      updateStorageBeer();
+    }
+  }
 }
 //event listener for add drink
 function handleAddBeer(event) {
@@ -186,6 +212,7 @@ function handleAddBeer(event) {
   var newBeer = new Addbeer(name, abv, type, writtenNotes, score);
 
   newBeer.tableRow();
+  updateStorageBeer();
 }
 
 // Button for add drink
@@ -195,16 +222,22 @@ addNewDrink.addEventListener('submit', handleAddBeer);
 
 function showWelcome() {
   loginContainer.setAttribute('style', 'display: none');
+  for(var i=0; i<loginChildren.length; i++) {
+    loginChildren[i].setAttribute('style', 'display: none');
+  }
+  htmlDarken.setAttribute('style', 'display: none');
   welcome.setAttribute('style', 'display: inline-block');
   htmlBody.setAttribute('style', 'height: auto; overflow: scroll');
-  htmlDarken.setAttribute('style', 'display: none');
   welcomeMsg.textContent = `Welcome, ${currentUser.name}`;
 }
 
 function showLogin() {
   loginContainer.setAttribute('style', 'display: fixed');
-  welcome.setAttribute('style', 'display: none');
+  for(var i=0; i<loginChildren.length; i++) {
+    loginChildren[i].setAttribute('style', '');
+  }
   htmlDarken.setAttribute('style', 'display: block');
+  welcome.setAttribute('style', 'display: none');
   htmlBody.setAttribute('style', 'height: 100vh; overflow: hidden');
   welcomeMsg.textContent = '';
 }
@@ -221,6 +254,7 @@ function handleLogin(event) {
     console.log(`${currentUser.name} logged in`);
     updateStorage();
     event.target.username.value = null;
+    event.target.ageCheck.checked = false;
     showWelcome();
   } else {
     console.log('Login failed, user is underage!');
@@ -250,8 +284,6 @@ function toggleForm(event) {
 
 }
 
-
-
 function checkLogin() {
   if(getStorageUser()) {
     getStorageUser();
@@ -260,7 +292,6 @@ function checkLogin() {
     showLogin();
   }
 }
-
 
 createHeader();
 checkLogin();
