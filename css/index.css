@@ -23,11 +23,11 @@ p {
     box-shadow: 0 0 20px #67140b;
     margin-top: 4em;
     background-color: white;
-    overflow: hidden;
+    overflow: auto;
 }
 
 form{
-    overflow: hidden;
+    overflow: auto;
 }
 
 #loginForm{
@@ -63,15 +63,13 @@ main {
     /* background-color: white; */
    /* min-height: auto;  */
    overflow: auto;
- 
-    
-  
 }
 
 header{
     height: 130px;
 }
 
+/*ADD New Drink Button*/
 button {
     display: inline;
     margin: 15px;
@@ -92,11 +90,14 @@ button:hover{
     border-radius: 5px;
 }
 
+/* ADD New Drink Button =================*/
 
 nav {
     float: left;
 }
 
+
+/* Input form */
 input[type=text]:focus {
     border: 1px solid #ccc;
     background-color: lightgray;
@@ -114,25 +115,27 @@ textarea {
     resize: none;
 }
 
-legend{
-    font-size: 18px;
-    margin: 10px;
-    margin-left: 0px;
-}
+    legend{
+        font-size: 18px;
+        margin: 10px;
+        margin-left: 0px;
+    }
 
-#abv {
-    width: 40px;
-}
+    #abv {
+        width: 40px;
+    }
 
-#score {
-    width: 40px;
-}
+    #score {
+        width: 40px;
+    }
 
-#btn1{
-    background-color: #67140b;
-    border-bottom: 3px solid #e5951a;
-    font-size: 22px;
-}
+    #btn1{
+        background-color: #67140b;
+        border-bottom: 3px solid #e5951a;
+        font-size: 22px;
+    }
+/* Input form============================= */
+
 
 #drinkTable {
     width: 1024px;
@@ -170,7 +173,7 @@ legend{
   }
 
 
-
+/* Page divider with HR */
 hr {
     overflow: visible; /* For IE */
     height: 30px;
@@ -207,7 +210,7 @@ hr:before {
     margin: 0 auto;
     margin-top: 50px;
 }
-
+/* Page divider with HR ======================*/
 
 form{
     padding-bottom: 200px;
