@@ -15,6 +15,7 @@ var wineTypes = ['Chardonnay', 'Riesling', 'Pinot Grigio', 'Sauvignon Blanc', 'C
 //html element vars
 var htmlBody = document.getElementById('body');
 var loginForm = document.getElementById('login');
+var loginContainer = document.getElementById('loginForm');
 var logoutButton = document.getElementById('logout');
 var welcome = document.getElementById('welcome');
 var welcomeMsg = document.getElementById('welcomeMsg');
@@ -228,7 +229,7 @@ Addbeer.prototype.rowData = function () {
 };
 
 function showWelcome() {
-  loginForm.setAttribute('style', 'display: none');
+  loginContainer.setAttribute('style', 'display: none');
   welcome.setAttribute('style', 'display: inline-block');
   htmlBody.setAttribute('style', 'height: auto; overflow: scroll');
   htmlDarken.setAttribute('style', 'display: none');
@@ -236,7 +237,7 @@ function showWelcome() {
 }
 
 function showLogin() {
-  loginForm.setAttribute('style', 'display: fixed');
+  loginContainer.setAttribute('style', 'display: fixed');
   welcome.setAttribute('style', 'display: none');
   htmlDarken.setAttribute('style', 'display: block');
   htmlBody.setAttribute('style', 'height: 100vh; overflow: hidden');
