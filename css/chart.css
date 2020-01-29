@@ -7,9 +7,34 @@ nav {
     float: left;
 }
 
-header{
-    height: 130px;
-}
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    z-index: 20;
+  }
+
+  header{
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+      height: 130px;
+  }
+
+main h1{
+      color: #e5951a;
+      padding-top: 50px;
+      width: 400px;
+      margin: 0 auto;
+      background-color: lightgray;
+      border-radius: 10px;
+
+  }
 
 
 p {
@@ -51,21 +76,23 @@ main {
     border-bottom: 3px solid #e5951a;
 }
 
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
-  }
-
-  header{
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      z-index: 2;
-  }
-
+/* 
+.chartjs-render-monitor{
+    height: 100px;
+} */
  
+.chart-container{
+    /* height:40vh; 
+    width:80vw; */
+    height: 400px;
+    width: 960px;
+    margin: 0 auto;
+    background-color: white;
+    overflow: auto;
+    margin-top: 125px;
+    border-radius: 10px;
+}
+
+/* #chartHook{
+    height: 100px;
+} */
