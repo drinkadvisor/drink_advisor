@@ -113,7 +113,7 @@ function getStorageWine() {
 function getStorageBeer() {
   var productData = localStorage.getItem('beerData');
   var parsedData = JSON.parse(productData);
-  Addbeer.beerDrink = 0;
+  Addbeer.beerDrink = [];
 
   for (var i = 0; i < parsedData.length; i++) {
     new Addbeer(parsedData[i].name, parseFloat(parsedData[i].abv), parsedData[i].type, parsedData[i].writtenNotes, parseFloat(parsedData[i].score));
@@ -173,7 +173,24 @@ Addbeer.prototype.rowData = function () {
 for (var i = 0; i < Addbeer.beerDrink.length; i++) {
   Addbeer.beerDrink[i].tableRow();
 }
-//event listener for add drink
+
+//event listener for add beer
+function handleAddWine(event) {
+
+  event.preventDefault();
+  var name = event.target.name.value;
+  var abv = (event.target.abv.value);
+  var type = (event.target.type.value);
+  var writtenNotes = (event.target.writtenNotes.value);
+  var score = parseInt(event.target.score.value);
+
+  var newWine = new Addwine(name, abv, type, writtenNotes, score);
+
+  newWine.tableRow();
+  updateStorageWine();
+}
+
+//event listener for add beer
 function handleAddBeer(event) {
 
   event.preventDefault();
@@ -186,11 +203,14 @@ function handleAddBeer(event) {
   var newBeer = new Addbeer(name, abv, type, writtenNotes, score);
 
   newBeer.tableRow();
+  updateStorageBeer();
 }
 
 // Button for add drink
-var addNewDrink = document.getElementById('beer-drink');
-addNewDrink.addEventListener('submit', handleAddBeer);
+var addNewBeerDrink = document.getElementById('beer-drink');
+addNewBeerDrink.addEventListener('submit', handleAddBeer);
+var addNewWineDrink = document.getElementById('wine-drink');
+addNewWineDrink.addEventListener('submit', handleAddWine);
 
 
 function showWelcome() {
@@ -238,11 +258,11 @@ function handleLogout(event) {
 function toggleForm(event) {
   var formChoose = event.target.id;
   console.log(formChoose);
-  if(formChoose === 'beer'){
+  if(formChoose === 'beerToggleButton'){
     dropdownOptions('beer-selector', beerTypes);
     document.getElementById('wine-drink').setAttribute('style','display:none');
     document.getElementById('beer-drink').setAttribute('style','display:block');
-  }else if (formChoose === 'wine'){
+  }else if (formChoose === 'wineToggleButton'){
     dropdownOptions('wine-selector', wineTypes);
     document.getElementById('beer-drink').setAttribute('style','display:none');
     document.getElementById('wine-drink').setAttribute('style','display:block');
