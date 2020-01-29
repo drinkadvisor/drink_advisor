@@ -16,6 +16,7 @@ var wineTypes = ['Chardonnay', 'Riesling', 'Pinot Grigio', 'Sauvignon Blanc', 'C
 var htmlBody = document.getElementById('body');
 var loginForm = document.getElementById('login');
 var loginContainer = document.getElementById('loginForm');
+var loginChildren = loginContainer.getElementsByTagName('*');
 var logoutButton = document.getElementById('logout');
 var welcome = document.getElementById('welcome');
 var welcomeMsg = document.getElementById('welcomeMsg');
@@ -195,16 +196,22 @@ addNewDrink.addEventListener('submit', handleAddBeer);
 
 function showWelcome() {
   loginContainer.setAttribute('style', 'display: none');
+  for(var i=0; i<loginChildren.length; i++) {
+    loginChildren[i].setAttribute('style', 'display: none');
+  }
+  htmlDarken.setAttribute('style', 'display: none');
   welcome.setAttribute('style', 'display: inline-block');
   htmlBody.setAttribute('style', 'height: auto; overflow: scroll');
-  htmlDarken.setAttribute('style', 'display: none');
   welcomeMsg.textContent = `Welcome, ${currentUser.name}`;
 }
 
 function showLogin() {
   loginContainer.setAttribute('style', 'display: fixed');
-  welcome.setAttribute('style', 'display: none');
+  for(var i=0; i<loginChildren.length; i++) {
+    loginChildren[i].setAttribute('style', '');
+  }
   htmlDarken.setAttribute('style', 'display: block');
+  welcome.setAttribute('style', 'display: none');
   htmlBody.setAttribute('style', 'height: 100vh; overflow: hidden');
   welcomeMsg.textContent = '';
 }
@@ -221,6 +228,7 @@ function handleLogin(event) {
     console.log(`${currentUser.name} logged in`);
     updateStorage();
     event.target.username.value = null;
+    event.target.ageCheck.checked = false;
     showWelcome();
   } else {
     console.log('Login failed, user is underage!');
@@ -250,8 +258,6 @@ function toggleForm(event) {
 
 }
 
-
-
 function checkLogin() {
   if(getStorageUser()) {
     getStorageUser();
@@ -260,7 +266,6 @@ function checkLogin() {
     showLogin();
   }
 }
-
 
 createHeader();
 checkLogin();
