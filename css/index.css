@@ -54,13 +54,16 @@ form{
 
 #mainDiv {
     margin-top: 100px;
-    overflow: hidden;
     background-image: url("../assets/beer.jpg");
+ 
+    
 }
 
 main {
     /* background-color: white; */
-   min-height: auto; 
+   /* min-height: auto;  */
+   overflow: auto;
+ 
     
   
 }
@@ -139,11 +142,15 @@ legend{
     border-radius: 10px;
     margin-top: 50px;
     box-shadow: 0 0 10px #f5f5dc;
+    height: 400px;
+    
 }
 
 #outerDrinkTable{
     background-image: url("../assets/beer.jpg");
     height: 600px;
+    overflow: auto;
+    
 }
 
 .footer {
