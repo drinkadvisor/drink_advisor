@@ -94,8 +94,10 @@ form{
 }
 
 #mainDiv {
-    margin-top: 100px;
-    background-image: url("../assets/beer.jpg");
+    margin-top: 120px;
+    /* background-image: url("../assets/hops-and-beer-social.jpg"); */
+
+    background-image: url("../assets/hops-and-beer-social.jpg");
 }
 
 main {
@@ -188,10 +190,10 @@ textarea {
 }
 
 #outerDrinkTable{
-    background-image: url("../assets/beer.jpg");
+    /* background-image: url("../assets/beer.jpg"); */
+    background-color: #f5f5dc;
     height: 600px;
     overflow: auto;
-    
 }
 
 /* .footer {
@@ -250,3 +252,14 @@ form{
     font-weight: bolder;
 
 }
+
+/* below is not working for some reason, though you'd think it should
+good news is, outDiv, or something like that, does work */
+/* #bottomImg{ 
+    background-color: #f5f5d;
+} */
+
+.backgroundImg1{
+    background-color: #f5f5dc;
+    overflow: auto;
+  }

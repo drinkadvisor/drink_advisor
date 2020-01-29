@@ -114,7 +114,7 @@ footer {
   position: relative;
   /* display:fixed; */
   width: 100%;
-  background-color: #f5f5dc;
+  background-color: #67140b;
   height: 50px;
   bottom:0px;
   
@@ -125,7 +125,7 @@ address {
     text-align: center;
     margin: auto;
     padding-top: 1%;
-    color: #67140b;
+    color: #f5f5dc;
     font-weight: bold;
 }
 
@@ -163,4 +163,9 @@ hr:before {
   box-shadow: 0 0 10px #f5f5dc;
   width: 100%;
   margin: 0 auto;
+}
+
+.backgroundImg{
+  background-image: url("../assets/corks.jpg");
+  overflow: auto;
 }

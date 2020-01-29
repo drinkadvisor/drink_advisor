@@ -31,9 +31,10 @@ p {
 
 main {
     /* background-color: white; */
-    background-image: url("../assets/corks.jpg");
-    background-repeat: repeat;
-    object-fit: fill;
+    /* background-image: url("../assets/corks.jpg"); */
+    /* background-repeat: repeat;
+    object-fit: fill; */
+    background-color: #e5951a ;
     overflow: auto;
 }
 
