@@ -18,9 +18,18 @@
     <div class="wrapper">
     <div id="darken"></div>
     <div id="loginForm">
+        <h3>Please login to start tracking beverages</h3>
         <form id="login">
-            <input id="usernameInput" name="username" type="string" required="required" placeholder="Username">
-            <button type='submit' name='addName'>Login</button>
+            <fieldset>
+                <p>
+                    <input id="usernameInput" name="username" type="string" required="required" placeholder="Username">
+                    <button type="submit" name="addName">Login</button>
+                </p>
+                <p>
+                    <input id="ageCheck" type="checkbox" name="ageCheck">
+                    <label id="ageLabel">I am over 21 years old</label>
+                </p>
+            </fieldset>
         </form>
     </div>
     <header>

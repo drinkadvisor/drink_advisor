@@ -68,9 +68,9 @@ function Addwine(name, abv, type, writtenNotes, score) {
 }
 
 //constructor for user
-function User(name, age) {
+function User(name, over21) {
   this.name = name;
-  this.age = age;
+  this.over21 = over21;
 }
 
 //store wine in LS
@@ -214,13 +214,17 @@ function handleLogin(event) {
   event.preventDefault();
   var usernameInput = event.target.username.value;
   console.log(`User logging in as ${usernameInput}...`);
-  if (usernameInput !== getStorageUser()) {
-    currentUser = new User(usernameInput, 999);
+  if (event.target.ageCheck.checked === true) {
+    if (usernameInput !== getStorageUser()) {
+      currentUser = new User(usernameInput, true);
+    }
+    console.log(`${currentUser.name} logged in`);
+    updateStorage();
+    event.target.username.value = null;
+    showWelcome();
+  } else {
+    console.log('Login failed, user is underage!');
   }
-  console.log(`${currentUser.name} logged in`);
-  updateStorage();
-  event.target.username.value = null;
-  showWelcome();
 }
 
 function handleLogout(event) {
