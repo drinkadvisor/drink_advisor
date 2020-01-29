@@ -31,6 +31,7 @@ form{
     overflow: auto;
 }
 
+<<<<<<< Updated upstream
 #loginForm{
     position: fixed;
     height: 100vh;
@@ -54,6 +55,11 @@ form{
 #loginForm h3 {
     margin-bottom: 30px;
 }
+=======
+/* #loginForm{
+    float: right;
+} */
+>>>>>>> Stashed changes
 
 #login {
     padding: 0;
