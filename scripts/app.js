@@ -134,10 +134,6 @@ function getStorage() {
   getStorageUser();
 }
 
-//var x = new Addbeer('corona', '5%', 'lager', 'I mean its beer with lime usually', '2.5');
-//console.log(x);
-//console.log(Addbeer.beerDrink);
-
 var drinkHeader = document.getElementById('table-head');
 var drinkBody = document.getElementById('table-body');
 
@@ -169,10 +165,6 @@ Addbeer.prototype.rowData = function () {
     row.appendChild(userDrinkData);
   }
 };
-
-new Addbeer(' Corona ', ' 5% ', 'Lager ', 'nothing special ', '5/10 ');
-new Addbeer('abcc', 'dasdasd', 'asdasd', 'asdasd', '5');
-createHeader();
 
 for (var i = 0; i < Addbeer.beerDrink.length; i++) {
   Addbeer.beerDrink[i].tableRow();
@@ -195,6 +187,7 @@ function handleAddBeer(event) {
 var addNewDrink = document.getElementById('add-drink');
 addNewDrink.addEventListener('submit', handleAddBeer);
 
+
 //var x = new Addbeer('corona', '5%', 'lager', 'I mean its beer with lime usually', '2.5');
 //console.log(x);
 //console.log(Addbeer.beerDrink);
@@ -230,6 +223,7 @@ Addbeer.prototype.rowData = function () {
     row.appendChild(userDrinkData);
   }
 };
+
 
 function showWelcome() {
   loginForm.setAttribute('style', 'display: none');
