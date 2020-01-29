@@ -183,46 +183,10 @@ function handleAddBeer(event) {
 
   newBeer.tableRow();
 }
+
 // Button for add drink
 var addNewDrink = document.getElementById('add-drink');
 addNewDrink.addEventListener('submit', handleAddBeer);
-
-
-//var x = new Addbeer('corona', '5%', 'lager', 'I mean its beer with lime usually', '2.5');
-//console.log(x);
-//console.log(Addbeer.beerDrink);
-
-var drinkHeader = document.getElementById('table-head');
-var drinkBody = document.getElementById('table-body');
-
-var createHeader = function () {
-  for (var x = 0; x < headerArray.length; x++) {
-    var categories = document.createElement('th');
-    categories.textContent = headerArray[x];
-    drinkHeader.appendChild(categories);
-  }
-};
-//Need to create seperate tr function;
-
-Addbeer.prototype.tableRow = function(){
-
-  var tableRow = document.createElement('tr');
-  drinkBody.appendChild(tableRow);
-  tableRow.id = this.name;
-
-  this.rowData();
-};
-
-Addbeer.prototype.rowData = function () {
-
-  for (var i = 0; i < headerArray.length; i++) {
-    var userDrinkData = document.createElement('td');
-    userDrinkData.textContent = this[value[i]];
-
-    var row = document.getElementById(this.name);
-    row.appendChild(userDrinkData);
-  }
-};
 
 
 function showWelcome() {
