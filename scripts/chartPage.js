@@ -9,10 +9,10 @@ function renderChart(ctx, typeArray, drinkArray){
   var labels = [];
   var avgScores = [];
   var bgColors = [];
-  var options = {};
-  data.datasets = {};
-  options.legend = {};
-  options.title = {};
+  // var options = {};
+  // data.datasets = {};
+  // options.legend = {};
+  // options.title = {};
   var avgScoresObjects = chartScoreAverage(typeArray, drinkArray);
 
 
@@ -25,25 +25,30 @@ function renderChart(ctx, typeArray, drinkArray){
     bgColors.push('#3e95cd');
   }
 
-  data.labels = typeArray;
-  // data.datasets.label = "Average Score";
-  data.datasets.data = avgScores;
-  data.datasets.backgroundcolor = bgColors;
-
-  options.legend.display = false;
-  options.title.display = true;
-  options.title.text = 'Scores out of 10';
-  options.defaultcolor = 'rgba(255,255,255,1)';
-
-  
-
-  var myBarChart = new Chart(ctx, {
+  var myChart = new Chart(ctx, {
     type: 'bar',
-    data: data,
-    options: options,
+    data: {
+      labels: typeArray,
+      datasets: [{
+        label: 'Average Score',
+        data: avgScores,
+        backgroundColor: bgColors,
+        borderColor: 'black',
+        borderWidth: 1,
+      }],
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            suggestedMax: 10,
+          },
+        }],
+      },
+    },
   });
 
-  console.log(myBarChart);
 }
 
 
@@ -54,7 +59,6 @@ from every drink and then averaged before being returned.
 This is intended to be used with the renderChart function to populate the chart data
 */
 function chartScoreAverage(typeArray, drinkArray){
-
   var scores = [];
 
   for(var labelSeed = 0; labelSeed < typeArray.length; labelSeed++){
@@ -108,6 +112,7 @@ function renderWines(ctx){
 function concatLabelAndObjectArrays(labelArrayArrays, objectArrayArrays){
   var variety = [];
   var drinks = [];
+
   for(let x = 0; x < labelArrayArrays.length; x++){
     for(let y = 0; y < labelArrayArrays[x].length; x++){
       variety.push(labelArrayArrays[x][y]);
@@ -121,7 +126,6 @@ function concatLabelAndObjectArrays(labelArrayArrays, objectArrayArrays){
   }
 
   return [variety, drinks];
-
 }
 
 
