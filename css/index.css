@@ -100,7 +100,6 @@ form{
 
 main {
     /* background-color: white; */
-   /* min-height: auto;  */
    overflow: auto;
 }
 
@@ -195,14 +194,14 @@ textarea {
     
 }
 
-.footer {
+/* .footer {
     position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
     color: white;
     text-align: center;
-  }
+  } */
 
   header{
       position: fixed;
@@ -211,44 +210,6 @@ textarea {
       width: 100%;
   }
 
-
-/* Page divider with HR */
-hr {
-    overflow: visible; /* For IE */
-    height: 30px;
-    border-style: solid;
-    border-color: #f5f5dc;
-    border-width: 1px 0 0 0;
-    border-radius: 20px;
-}
-
-hr:before { 
-    display: block;
-    content: "";
-    height: 30px;
-    margin-top: -31px;
-    border-style: solid;
-    border-color: #f5f5dc;
-    border-width: 0 0 1px 0;
-    border-radius: 20px;
-}
-
-#divider{
-    height: 50px;
-    background-color: #67140b;
-    /* box-shadow: 0 0 10px #f5f5dc; */
-    width: 630px;
-    margin: 0 auto;
-}
-
-#divOuter{
-    height: 50px;
-    background-color: #67140b;
-    box-shadow: 0 0 10px #f5f5dc;
-    width: 100%;
-    margin: 0 auto;
-}
-/* Page divider with HR ======================*/
 
 form{
     padding-bottom: 200px;

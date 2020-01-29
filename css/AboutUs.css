@@ -29,8 +29,9 @@ p {
 
 main {
     /* background-color: white; */
-    height: 450px;
     background-image: url("../assets/corks.jpg");
+    background-repeat: repeat;
+    object-fit: fill;
     overflow: auto;
 }
 
@@ -47,7 +48,7 @@ main h1{
     margin: 0 auto;
     background-color: lightgray;
     border-radius: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-top: 100px;
     margin-bottom: 100px;
 }
@@ -60,7 +61,7 @@ main h1{
     margin: 0 auto;
     background-color: lightgray;
     border-radius: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-top: 100px;
     margin-bottom: 100px;
     box-shadow: 0 0 20px #67140b;
@@ -74,6 +75,8 @@ main h1{
     margin-top: 100px;
     box-shadow: 0 0 20px #67140b;
     background-color: white;
+    margin-bottom: 50px;
+    line-height: 20px;
 }
 
 h2 {
@@ -84,3 +87,22 @@ h2 {
     padding: 10px;
     color: #e5951a;
 }
+
+
+footer {
+    position: relative;
+    /* display:fixed; */
+    width: 100%;
+    background-color: #f5f5dc;
+    height: 50px;
+    bottom:0px;
+  }
+  
+  address {
+    width: 50%;
+      text-align: center;
+      margin: auto;
+      padding-top: 1%;
+      color: #67140b;
+      font-weight: bold;
+  }

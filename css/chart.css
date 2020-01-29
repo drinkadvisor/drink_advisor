@@ -7,7 +7,7 @@ nav {
     float: left;
 }
 
-footer {
+/* footer {
     position: relative;
     left: 0;
     bottom: 0;
@@ -15,7 +15,7 @@ footer {
     color: white;
     text-align: center;
     z-index: 20;
-  }
+  } */
 
   header{
       position: fixed;
@@ -69,9 +69,8 @@ main {
     /* background-color: white; */
     /* height: 450px; */
     background-image: url("../assets/bar.jpg");
-    background-repeat: repeat-x;
+    background-repeat: repeat;
     z-index: -1;
-    min-height: 750px;
     overflow: auto;
 }
 
@@ -95,6 +94,7 @@ main {
     overflow: auto;
     margin-top: 125px;
     border-radius: 10px;
+    margin-bottom: 75px;
 }
 
 /* #chartHook{
