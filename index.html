@@ -12,36 +12,33 @@
     <link rel='stylesheet' href='./css/index.css'>
     <link rel='stylesheet' href='./css/Table.css'>
     <title>Homepage</title>
-
-
 </head>
 
 <body >
     <div class="wrapper">
+    <div id="loginForm">
+        <form id="login">
+            <input id="usernameInput" name="username" type="string" required="required" placeholder="Username">
+            <button type='submit' name='addName'>Login</button>
+        </form>
+    </div>
     <header>
         <div id='subText'>
             <img id='logo' src="./assets/drinkadvisorLogo.png">
             <h1>Drink Advisor</h1>
             <h3>Alcohol and Statistics: Together At Last</h3>
-
             <nav>
                 <div id="myDIV">
-                <ul>
-                    <li><a href="index.html" class="target" id="btn1">Home</a></li>
-                    <li><a href="charts.html" class="target">Charts</a></li>
-                    <li><a href="aboutUs.html" class="target">About Us</a><li>
-                </ul>
-            </div>
+                    <ul>
+                        <li><a href="index.html" class="target" id="btn1">Home</a></li>
+                        <li><a href="charts.html" class="target">Charts</a></li>
+                        <li><a href="aboutUs.html" class="target">About Us</a><li>
+                    </ul>
+                </div>
             </nav>
-            <div id="loginForm">
-            <form id="login">
-                <input id="usernameInput" name="username" type="string" required="required" placeholder="Username">
-                <button type='submit' name='addName'>Login</button>
-            </form>
             <div id="welcome">
                 <p id="welcomeMsg"></p>
                 <button id="logout" type="button" name="logout">Logout</button>
-            
             </div>
         </div>
     </header>
@@ -64,35 +61,29 @@
             <button type="submit">Add New Drink</button>
           </form>
         </div>
-
-        <div id="divOuter">
-          <div id="divider">
-            <br>
-            <hr>
-           </div>
-        </div>
-        
-        <div id="outerDrinkTable">
-            <div id="drinkTable">
-                <table>
-                    <thead id='table-head'></thead>
-                    <tbody id='table-body'></tbody>
-                </table>
+            <div id="divOuter">
+                <div id="divider">
+                    <br>
+                    <hr>
+                </div>
             </div>
-        </div>
-
-    </main>
-
-</div>
-<footer class="footer">
+            <div id="outerDrinkTable">
+                <div id="drinkTable">
+                    <table>
+                        <thead id='table-head'></thead>
+                        <tbody id='table-body'></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="footer">
         <div>
             <address>
                 Codefellows: Class Of Seattle - 201d58 - Team Boo Berry
             </address>
         </div>
     </footer>
-    <script src="scripts/app.js">       
-    </script>
+    <script src="scripts/app.js"></script>
 </body>
-
 </html>
