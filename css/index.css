@@ -192,7 +192,7 @@ textarea {
 #outerDrinkTable{
     /* background-image: url("../assets/beer.jpg"); */
     background-color: #f5f5dc;
-    height: 600px;
+    height: 500px;
     overflow: auto;
 }
 
@@ -235,13 +235,14 @@ form{
     width: 830px;
     margin: 0 auto;
     margin-top: 100px;
-    background-color: lightgray;
+    background-color: #f5f5dc;
     border-radius: 10px;
     /* overflow: hidden; */
     clear: both;
     z-index: 2;
     margin-left: 205px;
     padding: 20px;
+    box-shadow: 0 0 20px #67140b;
 }
 
  #indexQuote em{

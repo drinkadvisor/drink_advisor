@@ -31,9 +31,9 @@ p {
 
 main {
     /* background-color: white; */
-    /* background-image: url("../assets/corks.jpg"); */
-    /* background-repeat: repeat;
-    object-fit: fill; */
+    background-image: url("../assets/Ironstone-Vineyard-in-Murphys.jpg");
+    /* background-repeat: repeat; */
+    object-fit: cover;
     background-color: #e5951a ;
     overflow: auto;
 }
@@ -54,6 +54,9 @@ main h1{
     /* overflow: hidden; */
     margin-top: 100px;
     margin-bottom: 100px;
+    font-size: 20px;
+    box-shadow: 0 0 20px #67140b;
+
 }
 
 #quote {
