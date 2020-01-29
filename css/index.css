@@ -31,6 +31,44 @@ form{
     overflow: auto;
 }
 
+/* #loginForm{
+    float: right;
+} */
+
+#login {
+    padding: 0;
+}
+
+#usernameInput {
+    display: inline;
+    margin: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+#darken {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 50%;
+    z-index: 4;
+}
+
+#welcome{
+    position: relative;
+    left: 800px;
+    bottom: 70px;
+    display: none;
+}
+
+#welcomeMsg{
+    display: inline-block;
+}
+
 #mainDiv {
     margin-top: 100px;
     background-image: url("../assets/beer.jpg");
