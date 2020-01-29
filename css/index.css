@@ -34,9 +34,15 @@ form{
     display: inline-block ;
 }
 
+#welcome{
+    display: none;
+}
+
 main {
-    min-height: 800px;
-    /* overflow: auto; */
+
+    /* background-color: white; */
+   min-height: auto; 
+
     overflow: hidden;
     background-image: url("../assets/beer.jpg");
 }

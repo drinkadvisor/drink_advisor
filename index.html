@@ -10,9 +10,9 @@
     <link rel='stylesheet' href='./css/styleGuide.css'>
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Lemonada|PT+Serif&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='./css/index.css'>
+    <link rel='stylesheet' href='./css/Table.css'>
     <title>Homepage</title>
 
-    <link rel='stylesheet' href='./css/Table.css'>
 
 </head>
 
@@ -35,11 +35,13 @@
             </nav>
 
             <form id="login">
-                <label>Login:</label>
                 <input id="usernameInput" name="username" type="string" required="required" placeholder="Username">
-                <button type='submit' name='addName'>Are You 21+?</button>
+                <button type='submit' name='addName'>Login</button>
             </form>
-
+            <div id="welcome">
+                <p id="welcomeMsg"></p>
+                <button id="logout" type="button" name="logout">Logout</button>
+            </div>
         </div>
     </header>
 
@@ -52,11 +54,12 @@
               <label>Type</label>
               <input name="type" type="text">
               <label>ABV</label>
-              <input name="abv" type="number" id="abv">
+              <input name="abv" type="number" step=".1" id="abv">
               <label>Score</label>
               <input name="score" type="number" id="score">
               <br></br>
               <label>Notes</label>
+              <input name="writtenNotes" type="text">
               <!-- <input name="writtenNotes" type="text"> -->
               <textarea placeholder="Tasting notes..."></textarea>
            
