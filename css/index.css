@@ -27,6 +27,10 @@ p {
     display: none;
 }
 
+#formControl{
+    margin-left: 550px;
+}
+
 form{
     overflow: auto;
 }
@@ -250,7 +254,7 @@ form{
     padding-bottom: 200px;
 }
 
-#indexQuote{
+/* #indexQuote{
     color: #e5951a;
     padding: 25px;
     padding-left: 35px;
@@ -261,4 +265,27 @@ form{
     overflow: hidden;
     margin-top: 100px;
     margin-bottom: 100px;
+} */
+
+#indexQuote{
+    display: inline-block;
+    width: 830px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: lightgray;
+    border-radius: 10px;
+    /* overflow: hidden; */
+    clear: both;
+    z-index: 2;
+    margin-left: 205px;
+    padding: 20px;
+}
+
+ #indexQuote em{
+    color: #e5951a;
+    margin: 0 auto;
+    font-size: 20px;
+    clear: both;
+    font-weight: bolder;
+
 }
