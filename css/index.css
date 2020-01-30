@@ -120,6 +120,7 @@ textarea {
     background-image: url("../assets/vineyard.png");
     /* background-color: #f5f5dc; */
     min-height: 500px;
+    background-size: cover;
     overflow: auto;
 }
 

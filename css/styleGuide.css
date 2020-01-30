@@ -42,7 +42,7 @@ a {
   font-weight:bolder;
   font-size: 22px;
   /* text-shadow:1px 1px #67140b; */
-  background: white;
+  background: #f5f5dc;
   border-radius: 3px;
   padding: 5px;
   padding-right: 8px;
@@ -54,6 +54,7 @@ a {
   float: left;
   height: 90px;
   margin-left: 112px;
+  /* margin-left: 25%; */
 }
 
 nav {
@@ -218,7 +219,7 @@ hr {
   overflow: visible; /* For IE */
   height: 30px;
   border-style: solid;
-  border-color: #f5f5dc;
+  border-color: #e5951a;
   border-width: 1px 0 0 0;
   border-radius: 20px;
 }
@@ -229,7 +230,7 @@ hr:before {
   height: 30px;
   margin-top: -31px;
   border-style: solid;
-  border-color: #f5f5dc;
+  border-color: #e5951a;
   border-width: 0 0 1px 0;
   border-radius: 20px;
 }
