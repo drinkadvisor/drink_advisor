@@ -40,6 +40,7 @@ form{
     /* background-image: url("../assets/hops-and-beer-social.jpg"); */
 
     background-image: url("../assets/hops-and-beer-social.jpg");
+    background-size: cover;
 }
 
 main {
@@ -102,10 +103,9 @@ textarea {
     width: 1024px;
     margin: 0 auto;
     background-color: white;
-    border: 1px solid black;
     border-radius: 10px;
     margin-top: 50px;
-    box-shadow: 0 0 10px #f5f5dc;
+    box-shadow: 0 0 10px #67140b;
     height: 400px;
     
 }
