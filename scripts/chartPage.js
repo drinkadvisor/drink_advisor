@@ -119,9 +119,7 @@ function renderWines(){
 function concatLabelAndObjectArrays(labelArrayArrays, objectArrayArrays){
   var variety = [];
   var drinks = [];
-  console.log(labelArrayArrays);
-  console.log(labelArrayArrays[0]);
-  
+
   for(let labelX = 0; labelX < labelArrayArrays.length; labelX++){
     for(let labelY = 0; labelY < labelArrayArrays[labelX].length; labelY++){
       variety.push(labelArrayArrays[labelX][labelY]);
