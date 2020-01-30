@@ -135,6 +135,26 @@ nav ul li {
   display: inline-block;
 }
 
+button {
+  display: inline;
+  margin: 15px;
+  background-color: #67140b;
+  color: #e5951a;
+  padding: 8px;
+  font-weight: bolder;
+  border-color: #67140b;
+  border-radius: 5px;
+  margin-left: 0em;
+  font-size: 18px;
+} 
+
+button:hover{
+  background-color: #dd1717;
+  color: #67140b;
+  border-color: #dd1717;
+  border-radius: 5px;
+}
+
 #subText {
   width:960px;
   margin:auto;
