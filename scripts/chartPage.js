@@ -120,15 +120,15 @@ function concatLabelAndObjectArrays(labelArrayArrays, objectArrayArrays){
   var variety = [];
   var drinks = [];
 
-  for(let x = 0; x < labelArrayArrays.length; x++){
-    for(let y = 0; y < labelArrayArrays[x].length; x++){
-      variety.push(labelArrayArrays[x][y]);
+  for(let labelX = 0; labelX < labelArrayArrays.length; labelX++){
+    for(let labelY = 0; labelY < labelArrayArrays[labelX].length; labelY++){
+      variety.push(labelArrayArrays[labelX][labelY]);
     }
   }
 
-  for(let x = 0; x < objectArrayArrays.length; x++){
-    for(let y = 0; y < objectArrayArrays[x].length; x++){
-      drinks.push(labelArrayArrays[x][y]);
+  for(let objectX = 0; objectX < objectArrayArrays.length; objectX++){
+    for(let objectY = 0; objectY < objectArrayArrays[objectX].length; objectY++){
+      drinks.push(labelArrayArrays[objectX][objectY]);
     }
   }
 
@@ -141,6 +141,7 @@ function concatLabelAndObjectArrays(labelArrayArrays, objectArrayArrays){
 //then invokes the render chart
 function renderBeerAndWine(){
   var fullTableObjects = concatLabelAndObjectArrays([beerTypes, wineTypes], [Addbeer.beerDrink, Addwine.wineDrink]);
+  console.log(fullTableObjects);
   renderChart(context, fullTableObjects[0], fullTableObjects[1]);
 }
 
