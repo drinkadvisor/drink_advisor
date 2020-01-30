@@ -31,8 +31,9 @@ arguments: <select> node id, array of strings
 function tableRender(){
   if(localStorage !== 0){
     getStorageBeer();
-    for (var i = 0; Addbeer.beerDrink.length; i++){
+    for (var i = 0; i < Addbeer.beerDrink.length; i++){
       Addbeer.beerDrink[i].tableRow();
+      console.log(Addbeer.beerDrink[i]);
     }
   }
 }
