@@ -53,6 +53,11 @@ function renderChart(ctx, typeArray, drinkArray){
 
 //context of the canvas element
 var context = document.getElementById('chartHook');
+// Addwine.wineDrink = [];
+// Addbeer.beerDrink = [];
+
+var beerTypes = ['Lager', 'Ale', 'IPA', 'Pilsner', 'Witbier', 'Stout', 'Pale Ale', 'Porter', 'Brown', 'Red', 'Belgian'];
+var wineTypes = ['Chardonnay', 'Riesling', 'Pinot Grigio', 'Sauvignon Blanc', 'Cabernet Sauvignon', 'Pinot Noir', 'Syrah', 'Zinfandel', 'Malbec', 'Merlot'];
 
 /*
 arguments: array of drink types to use as 'labels', array of drink objects
@@ -170,7 +175,7 @@ console.log(chartScoreAverage(labs, q));
 
 
 
-renderChart(context, labs, q);
+//renderChart(context, labs, q);
 getStorage();
 document.getElementById('renderBeer').addEventListener('click',renderBeers);
 document.getElementById('renderAll').addEventListener('click',renderBeerAndWine);
