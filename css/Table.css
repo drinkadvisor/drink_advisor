@@ -1,8 +1,9 @@
 table {
     width: 600px;
     margin: 0px auto;
-    margin-top: 10vh;
+    margin-top: 25px;
     font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 25px;
 }
   th, td {
   padding: 7px 10px 10px 10px;
@@ -13,4 +14,8 @@ table {
 }
   tr:nth-child(odd) {
   background-color: blanchedalmond;
+}
+
+  tr:nth-child(even){
+  background-color: lavender;
 }

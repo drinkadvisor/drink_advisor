@@ -49,6 +49,7 @@ a {
 }
 
 
+
 #logo {
   float: left;
   height: 90px;
@@ -162,6 +163,7 @@ button:hover{
 #subText {
   width:960px;
   margin:auto;
+  height:115px;
 }
 
 main {
