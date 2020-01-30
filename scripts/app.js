@@ -227,6 +227,7 @@ Addbeer.prototype.rowData = function () {
   var deleteButton = document.createElement('button');
   deleteButton.className = 'deleteButton';
   deleteButton.setAttribute('bevName', this.name);
+  deleteButton.textContent = 'x';
   row.appendChild(deleteButton);
   deleteListener();
 };
@@ -243,6 +244,7 @@ Addwine.prototype.rowData = function () {
   var deleteButton = document.createElement('button');
   deleteButton.className = 'deleteButton';
   deleteButton.setAttribute('bevName', this.name);
+  deleteButton.textContent = 'x';
   row.appendChild(deleteButton);
   deleteListener();
 };
