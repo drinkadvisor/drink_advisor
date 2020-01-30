@@ -103,7 +103,7 @@ function updateStorage() {
 function getStorageWine() {
   var productData = localStorage.getItem('wineData');
   var parsedData = JSON.parse(productData);
-  Addwine.wineDrink = 0;
+  Addwine.wineDrink = [];
 
   for (var i = 0; i < parsedData.length; i++) {
     new Addwine(parsedData[i].name, parseFloat(parsedData[i].abv), parsedData[i].type, parsedData[i].writtenNotes, parseFloat(parsedData[i].score));
@@ -157,7 +157,32 @@ Addbeer.prototype.tableRow = function(){
   this.rowData();
 };
 
+Addwine.prototype.tableRow = function(){
+
+  var tableRow = document.createElement('tr');
+  drinkBody.appendChild(tableRow);
+  tableRow.id = this.name;
+
+  this.rowData();
+};
+
 Addbeer.prototype.rowData = function () {
+
+  for (var i = 0; i < headerArray.length; i++) {
+    var userDrinkData = document.createElement('td');
+    userDrinkData.textContent = this[value[i]];
+
+    var row = document.getElementById(this.name);
+    row.appendChild(userDrinkData);
+  }
+  var deleteButton = document.createElement('button');
+  deleteButton.className = 'deleteButton';
+  deleteButton.setAttribute('bevName', this.name);
+  row.appendChild(deleteButton);
+  deleteListener();
+};
+
+Addwine.prototype.rowData = function () {
 
   for (var i = 0; i < headerArray.length; i++) {
     var userDrinkData = document.createElement('td');
@@ -236,10 +261,7 @@ function handleAddBeer(event) {
 }
 
 // Button for add drink
-var addNewBeerDrink = document.getElementById('beer-drink');
-addNewBeerDrink.addEventListener('submit', handleAddBeer);
-var addNewWineDrink = document.getElementById('wine-drink');
-addNewWineDrink.addEventListener('submit', handleAddWine);
+
 
 
 function showWelcome() {
@@ -315,7 +337,7 @@ function checkLogin() {
   }
 }
 
-createHeader();
+
 checkLogin();
 
 //adding event listeners for login/logout
@@ -327,4 +349,9 @@ if(window.location.href === "http://127.0.0.1:5500/index.html" ||
    window.location.href === "https://drinkadvisor.github.io/drink_advisor"){
   document.getElementById('beerToggleButton').addEventListener('click', toggleForm);
   document.getElementById('wineToggleButton').addEventListener('click', toggleForm);
+  var addNewBeerDrink = document.getElementById('beer-drink');
+  addNewBeerDrink.addEventListener('submit', handleAddBeer);
+  var addNewWineDrink = document.getElementById('wine-drink');
+  addNewWineDrink.addEventListener('submit', handleAddWine);
+  createHeader();
 }
