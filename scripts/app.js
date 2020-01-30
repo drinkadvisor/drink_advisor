@@ -386,10 +386,10 @@ function handleLogin(event) {
   }
 }
 
-function handleLogout(event) {
-  event.preventDefault();
+function handleLogout() {
   console.log(`${currentUser.name} logged out`);
   localStorage.clear();
+  location.reload();
   showLogin();
 }
 
