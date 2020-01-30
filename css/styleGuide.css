@@ -257,3 +257,11 @@ hr:before {
   background-size: cover;
   overflow: auto;
 }
+
+.bioPics{
+  
+  float: left;
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+}
