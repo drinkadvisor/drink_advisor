@@ -231,6 +231,7 @@ function handleAddBeer(event) {
   var newBeer = new Addbeer(name, abv, type, writtenNotes, score);
 
   newBeer.tableRow();
+  getStorageBeer();
   updateStorageBeer();
 }
 
