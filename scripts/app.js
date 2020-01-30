@@ -28,8 +28,10 @@ arguments: <select> node id, array of strings
 1.clear all <option> off the <select> tag
 2.create an <option> for each element in 'optionArray' (value and name)
 */
-function tableRender(){
-  if(localStorage.beerDrink){
+function tableRenderBeer(){
+  console.log('trender envoked');
+  if(localStorage.beerData){
+    console.log('step2');
     getStorageBeer();
     createHeader();
     for (var i = 0; i < Addbeer.beerDrink.length; i++){
@@ -40,7 +42,8 @@ function tableRender(){
 }
 
 function tableRenderWine(){
-  if(localStorage.wineDrink){
+  console.log('wine render envoked');
+  if(localStorage.wineData){
     getStorageWine();
     for(var i = 0; i <Addwine.wineDrink.length; i++){
       Addwine.wineDrink[i].tableRow();
@@ -366,8 +369,7 @@ function checkLogin() {
 
 
 checkLogin();
-tableRender();
-tableRenderWine();
+
 //adding event listeners for login/logout
 loginForm.addEventListener('submit', handleLogin);
 logoutButton.addEventListener('click', handleLogout);
@@ -381,4 +383,6 @@ if(window.location.href === "http://127.0.0.1:5500/index.html" ||
   addNewBeerDrink.addEventListener('submit', handleAddBeer);
   var addNewWineDrink = document.getElementById('wine-drink');
   addNewWineDrink.addEventListener('submit', handleAddWine);
+  tableRenderBeer();
+  tableRenderWine();
 }
