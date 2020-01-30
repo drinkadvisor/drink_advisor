@@ -39,6 +39,10 @@ p {
     
 }
 
+#chartOptions {
+    text-align: center;
+}
+
 #chart {
     width: 960px;
     margin: 0 auto;
@@ -71,38 +75,31 @@ main {
 .chartjs-render-monitor{
     height: 100px;
 } */
+
+#chart-holder-box {
+    height: 400px !important;
+    width: 960px !important;
+}
  
 .chart-container{
     /* height:40vh; 
     width:80vw; */
-    height: 400px;
-    width: 960px;
+    height: 400px !important;
+    width: 960px !important;
     margin: 0 auto;
     background-color: white;
     overflow: auto;
     margin-top: 25px;
     border-radius: 10px;
     margin-bottom: 75px;
-    box-shadow: 0 0 20px #67140b;
+    display:none;
 }
 
-#renderChart ul {
-  width: 800px;
-  margin: 0 auto;
-  margin-right: 0px;
-    
+canvas {
+    height: 400px !important;
+    width: 960px !important;
 }
+/* #chartHook{
+    height: 100px;
+} */
 
-#renderChart h1 {
-    width: 300px;
-    margin: 0 auto;
-    text-align: center;
-      
-  }
-
-  #renderChart ul {
-    width: 900px;
-    margin: 0 auto;
-    margin-left: 428px;
-    margin-top: 20px;
-  }

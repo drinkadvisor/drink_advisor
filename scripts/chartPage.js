@@ -5,6 +5,7 @@ arrays and drink object arrays to pass them in
 */
 //this needs more functions to run, just a placeholder
 function renderChart(ctx, typeArray, drinkArray){
+  document.getElementById("chart-holder-box").setAttribute('style','display:block;');
   var data = {};
   var labels = [];
   var avgScores = [];
@@ -38,6 +39,8 @@ function renderChart(ctx, typeArray, drinkArray){
       }],
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: false,
       scales: {
         yAxes: [{
           ticks: {
