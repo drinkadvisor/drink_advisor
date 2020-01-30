@@ -21,16 +21,20 @@ p {
     width: 960px;
     margin: 0 auto;
     padding: 60px;
+    padding-top: 10px;
     border-radius: 10px;
-    margin-top: 100px;
+    margin-top: 75px;
+    margin-bottom: 75px;
     box-shadow: 0 0 20px #67140b;
     background-color: white;
 }
 
 main {
     /* background-color: white; */
-    height: 450px;
-    background-image: url("../assets/corks.jpg");
+    background-image: url("../assets/Ironstone-Vineyard-in-Murphys.jpg");
+    /* background-repeat: repeat; */
+    object-fit: cover;
+    background-color: #e5951a ;
     overflow: auto;
 }
 
@@ -47,40 +51,82 @@ main h1{
     margin: 0 auto;
     background-color: lightgray;
     border-radius: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-top: 100px;
     margin-bottom: 100px;
+    font-size: 20px;
+    box-shadow: 0 0 20px #67140b;
+
 }
 
 #quote {
     color: #e5951a;
     padding: 25px;
     padding-left: 35px;
+    padding-top: 20px;
     width: 750px;
     margin: 0 auto;
     background-color: lightgray;
     border-radius: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-top: 100px;
     margin-bottom: 100px;
     box-shadow: 0 0 20px #67140b;
+}
+
+#quote cite{
+    font-size: 22px;
 }
 
 #philosophy {
     width: 960px;
     margin: 0 auto;
     padding: 60px;
+    padding-top: 20px;
     border-radius: 10px;
-    margin-top: 100px;
+    margin-top: 75px;
     box-shadow: 0 0 20px #67140b;
     background-color: white;
+    margin-bottom: 50px;
+    
 }
+
+#philosophy p{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+#text p{
+    font-size: 18px;
+    line-height: 26px;
+}
+
 
 h2 {
     width: 300px;
     margin: 0 auto;
     text-align: center;
-    font-size: 20px;
-    padding: 10px;
+    font-size: 22px;
+    padding: 20px;
     color: #e5951a;
+    font-size: bold;
 }
+
+
+footer {
+    position: relative;
+    /* display:fixed; */
+    width: 100%;
+    background-color: #f5f5dc;
+    height: 50px;
+    bottom:0px;
+  }
+  
+  address {
+    width: 50%;
+      text-align: center;
+      margin: auto;
+      padding-top: 1%;
+      color: #67140b;
+      font-weight: bold;
+  }

@@ -170,10 +170,10 @@ label {
 }
 
 footer {
-  position: relative;;
+  position: relative;
   /* display:fixed; */
   width: 100%;
-  background-color: #f5f5dc;
+  background-color: #67140b;
   height: 50px;
   bottom:0px;
   
@@ -184,6 +184,47 @@ address {
     text-align: center;
     margin: auto;
     padding-top: 1%;
-    color: #67140b;
+    color: #f5f5dc;
     font-weight: bold;
+}
+
+hr {
+  overflow: visible; /* For IE */
+  height: 30px;
+  border-style: solid;
+  border-color: #f5f5dc;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+
+hr:before { 
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: #f5f5dc;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
+#divider{
+  height: 50px;
+  background-color: #67140b;
+  /* box-shadow: 0 0 10px #f5f5dc; */
+  width: 630px;
+  margin: 0 auto;
+}
+
+#divOuter{
+  height: 50px;
+  background-color: #67140b;
+  box-shadow: 0 0 10px #f5f5dc;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.backgroundImg{
+  background-image: url("../assets/corks.jpg");
+  overflow: auto;
 }

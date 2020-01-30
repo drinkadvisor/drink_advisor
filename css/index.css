@@ -27,18 +27,23 @@ p {
     display: none;
 }
 
+#formControl{
+    margin-left: 550px;
+}
+
 form{
     overflow: auto;
 }
 
 #mainDiv {
-    margin-top: 100px;
-    background-image: url("../assets/beer.jpg");
+    margin-top: 120px;
+    /* background-image: url("../assets/hops-and-beer-social.jpg"); */
+
+    background-image: url("../assets/hops-and-beer-social.jpg");
 }
 
 main {
     /* background-color: white; */
-   /* min-height: auto;  */
    overflow: auto;
 }
 
@@ -127,20 +132,20 @@ textarea {
 }
 
 #outerDrinkTable{
-    background-image: url("../assets/beer.jpg");
-    height: 600px;
+    /* background-image: url("../assets/beer.jpg"); */
+    background-color: #f5f5dc;
+    height: 500px;
     overflow: auto;
-    
 }
 
-.footer {
+/* .footer {
     position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
     color: white;
     text-align: center;
-  }
+  } */
 
   header{
       position: fixed;
@@ -150,49 +155,11 @@ textarea {
   }
 
 
-/* Page divider with HR */
-hr {
-    overflow: visible; /* For IE */
-    height: 30px;
-    border-style: solid;
-    border-color: #f5f5dc;
-    border-width: 1px 0 0 0;
-    border-radius: 20px;
-}
-
-hr:before { 
-    display: block;
-    content: "";
-    height: 30px;
-    margin-top: -31px;
-    border-style: solid;
-    border-color: #f5f5dc;
-    border-width: 0 0 1px 0;
-    border-radius: 20px;
-}
-
-#divider{
-    height: 50px;
-    background-color: #67140b;
-    /* box-shadow: 0 0 10px #f5f5dc; */
-    width: 630px;
-    margin: 0 auto;
-}
-
-#divOuter{
-    height: 50px;
-    background-color: #67140b;
-    box-shadow: 0 0 10px #f5f5dc;
-    width: 100%;
-    margin: 0 auto;
-}
-/* Page divider with HR ======================*/
-
 form{
     padding-bottom: 200px;
 }
 
-#indexQuote{
+/* #indexQuote{
     color: #e5951a;
     padding: 25px;
     padding-left: 35px;
@@ -203,4 +170,39 @@ form{
     overflow: hidden;
     margin-top: 100px;
     margin-bottom: 100px;
+} */
+
+#indexQuote{
+    display: inline-block;
+    width: 830px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: #f5f5dc;
+    border-radius: 10px;
+    /* overflow: hidden; */
+    clear: both;
+    z-index: 2;
+    margin-left: 205px;
+    padding: 20px;
+    box-shadow: 0 0 20px #67140b;
 }
+
+ #indexQuote em{
+    color: #e5951a;
+    margin: 0 auto;
+    font-size: 20px;
+    clear: both;
+    font-weight: bolder;
+
+}
+
+/* below is not working for some reason, though you'd think it should
+good news is, outDiv, or something like that, does work */
+/* #bottomImg{ 
+    background-color: #f5f5d;
+} */
+
+.backgroundImg1{
+    background-color: #f5f5dc;
+    overflow: auto;
+  }
