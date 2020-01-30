@@ -29,8 +29,9 @@ arguments: <select> node id, array of strings
 2.create an <option> for each element in 'optionArray' (value and name)
 */
 function tableRender(){
-  if(localStorage !== 0){
+  if(localStorage.beerDrink){
     getStorageBeer();
+    createHeader();
     for (var i = 0; i < Addbeer.beerDrink.length; i++){
       Addbeer.beerDrink[i].tableRow();
       //console.log(Addbeer.beerDrink[i]);
@@ -39,7 +40,7 @@ function tableRender(){
 }
 
 function tableRenderWine(){
-  if(localStorage !== 0){
+  if(localStorage.wineDrink){
     getStorageWine();
     for(var i = 0; i <Addwine.wineDrink.length; i++){
       Addwine.wineDrink[i].tableRow();
@@ -380,5 +381,4 @@ if(window.location.href === "http://127.0.0.1:5500/index.html" ||
   addNewBeerDrink.addEventListener('submit', handleAddBeer);
   var addNewWineDrink = document.getElementById('wine-drink');
   addNewWineDrink.addEventListener('submit', handleAddWine);
-  createHeader();
 }
