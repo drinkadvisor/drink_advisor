@@ -29,11 +29,15 @@ arguments: <select> node id, array of strings
 2.create an <option> for each element in 'optionArray' (value and name)
 */
 function tableRenderBeer(){
-  console.log('trender envoked');
+  console.log('beer render envoked');
   if(localStorage.beerData){
     console.log('step2');
     getStorageBeer();
-    createHeader();
+    
+    if(!document.getElementById('tableHeaderRow')){
+      createHeader();
+    }
+    
     for (var i = 0; i < Addbeer.beerDrink.length; i++){
       Addbeer.beerDrink[i].tableRow();
       //console.log(Addbeer.beerDrink[i]);
@@ -45,7 +49,10 @@ function tableRenderWine(){
   console.log('wine render envoked');
   if(localStorage.wineData){
     getStorageWine();
-    for(var i = 0; i <Addwine.wineDrink.length; i++){
+    if(!document.getElementById('tableHeaderRow')){
+      createHeader();
+    }
+    for(var i = 0; i < Addwine.wineDrink.length; i++){
       Addwine.wineDrink[i].tableRow();
       //console.log(Addwine.wineDrink[i]);
     }
@@ -166,13 +173,18 @@ var wineBody = document.getElementById('table-body-wine');
 
 var createHeader = function () {
   var tr = document.createElement('tr');
+  tr.id = 'tableHeaderRow';
+  console.log('1');
   for (var x = 0; x < headerArray.length; x++) {
-    var categories = document.createElement('th');
-    categories.textContent = headerArray[x];
-    drinkHeader.appendChild(categories);
-    //tr.appendChild(categories);
+    console.log('2');
+    var th = document.createElement('th');
+    th.innerText = headerArray[x];
+    // drinkHeader.appendChild(categories);
+    tr.appendChild(th);
   }
-  //drinkHeader.appendChild(tr);
+  console.log('3');
+  drinkHeader.appendChild(tr);
+  console.log('4');
 };
 //Need to create seperate tr function;
 
@@ -266,9 +278,15 @@ function handleAddWine(event) {
   var score = parseInt(event.target.score.value);
 
   var newWine = new Addwine(name, abv, type, writtenNotes, score);
+  updateStorageWine();
+
+  if(!document.getElementById('tableHeaderRow')){
+    createHeader();
+  }
+
 
   newWine.tableRow();
-  updateStorageWine();
+  event.target.reset();
 }
 
 //event listener for add beer
@@ -289,12 +307,12 @@ function handleDelete(event){
   var deleteRow = event.target.getAttribute('bevName');
   document.getElementById(deleteRow).remove();
 
-  for(var n = 0; n < Addbeer.beerDrink.length; n++){
+  for(let n = 0; n < Addbeer.beerDrink.length; n++){
     if(Addbeer.beerDrink[n].name === deleteRow){
       Addbeer.beerDrink.splice(n, 1);
       updateStorageBeer();
     }
-  } for(var n = 0; n < Addwine.wineDrink.length; n++){
+  } for(let n = 0; n < Addwine.wineDrink.length; n++){
     if(Addwine.wineDrink[n].name === deleteRow){
       Addwine.wineDrink.splice(n, 1);
       updateStorageWine();
@@ -314,7 +332,11 @@ function handleAddBeer(event) {
   var newBeer = new Addbeer(name, abv, type, writtenNotes, score);
 
   updateStorageBeer();
-
+  
+  if(!document.getElementById('tableHeaderRow')){
+    createHeader();
+  }
+  
   newBeer.tableRow();
   event.target.reset();
 }
@@ -325,7 +347,7 @@ function handleAddBeer(event) {
 
 function showWelcome() {
   loginContainer.setAttribute('style', 'display: none');
-  for(var i=0; i<loginChildren.length; i++) {
+  for(var i = 0; i < loginChildren.length; i++) {
     loginChildren[i].setAttribute('style', 'display: none');
   }
   htmlDarken.setAttribute('style', 'display: none');
