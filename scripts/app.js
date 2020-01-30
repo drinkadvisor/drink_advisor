@@ -177,21 +177,42 @@ var createHeader = function () {
 //Need to create seperate tr function;
 
 Addbeer.prototype.tableRow = function(){
+  var existingRow = false;
+  var rowQuery = document.getElementsByTagName('tr');
+  for(var rowi = 0; rowi < rowQuery.length; rowi++){
+    if (rowQuery[rowi].id === this.name){
+      existingRow = true;
+      break;
+    }
 
-  var tableRow = document.createElement('tr');
-  beerBody.appendChild(tableRow);
-  tableRow.id = this.name;
+  }
 
-  this.rowData();
+  if(existingRow === false){
+    var tableRow = document.createElement('tr');
+    beerBody.appendChild(tableRow);
+    tableRow.id = this.name;
+    this.rowData();
+  }
 };
 
 Addwine.prototype.tableRow = function(){
+  var existingRow = false;
+  var rowQuery = document.getElementsByTagName('tr');
+  for(var rowi = 0; rowi < rowQuery.length; rowi++){
+    if (rowQuery[rowi].id === this.name){
+      existingRow = true;
+      break;
+    }
 
-  var tableRow = document.createElement('tr');
-  wineBody.appendChild(tableRow);
-  tableRow.id = this.name;
+  }
 
-  this.rowData();
+  if(existingRow === false){
+    var tableRow = document.createElement('tr');
+    wineBody.appendChild(tableRow);
+    tableRow.id = this.name;
+    this.rowData();
+  }
+
 };
 
 Addbeer.prototype.rowData = function () {
@@ -293,6 +314,7 @@ function handleAddBeer(event) {
   updateStorageBeer();
 
   newBeer.tableRow();
+  event.target.reset();
 }
 
 // Button for add drink
