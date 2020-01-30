@@ -5,6 +5,7 @@
 
 header{
     height: 130px;
+    position: fixed;
 }
 
 nav {
@@ -23,7 +24,7 @@ p {
     padding: 60px;
     padding-top: 10px;
     border-radius: 10px;
-    margin-top: 75px;
+    margin-top: 0px;
     margin-bottom: 75px;
     box-shadow: 0 0 20px #67140b;
     background-color: white;
@@ -31,9 +32,9 @@ p {
 
 main {
     /* background-color: white; */
-    background-image: url("../assets/Ironstone-Vineyard-in-Murphys.jpg");
+    background-image: url("../assets/vineyard.png");
     /* background-repeat: repeat; */
-    object-fit: cover;
+    background-size: cover;
     background-color: #e5951a ;
     overflow: auto;
 }
@@ -70,7 +71,7 @@ main h1{
     border-radius: 10px;
     /* overflow: hidden; */
     margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 90px;
     box-shadow: 0 0 20px #67140b;
 }
 
@@ -129,4 +130,8 @@ footer {
       padding-top: 1%;
       color: #67140b;
       font-weight: bold;
+  }
+
+  .backgroundImg{
+    margin-bottom: 0px;
   }

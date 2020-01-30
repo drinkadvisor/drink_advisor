@@ -23,6 +23,7 @@ font-family: 'Lemonada', cursive;
 
 body {
   font-family: 'Lato', sans-serif;
+  background-color: #f5f5dc;
 }
 
 header {
@@ -121,6 +122,9 @@ nav ul li {
   left: 0;
   background-color: #000;
   opacity: 50%;
+    -moz-opacity: 0.5;
+    -webkit-opacity: 0.5;
+    filter: alpha(opacity=50);
   z-index: 4;
 }
 
@@ -234,17 +238,22 @@ hr:before {
   /* box-shadow: 0 0 10px #f5f5dc; */
   width: 630px;
   margin: 0 auto;
+  /* padding-top: 5px; */
 }
 
 #divOuter{
   height: 50px;
   background-color: #67140b;
-  box-shadow: 0 0 10px #f5f5dc;
+  box-shadow: 0 0 10px #e5951a;
   width: 100%;
   margin: 0 auto;
+  z-index: 5;
+  /* margin-top: 25px;
+  margin-bottom: 25px; */
 }
 
 .backgroundImg{
   background-image: url("../assets/corks.jpg");
+  background-size: cover;
   overflow: auto;
 }
