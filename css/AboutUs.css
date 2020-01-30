@@ -61,7 +61,7 @@ main h1{
 }
 
 #quote {
-    color: #e5951a;
+    color: #67140b;
     padding: 25px;
     padding-left: 35px;
     padding-top: 20px;
@@ -139,3 +139,19 @@ footer {
   li {
       list-style-type: none;
   }
+
+  p.drop-cap:first-letter {
+    font-size: 1.8em;
+    float: left;
+    /* margin-top: .10em; */
+    margin-bottom: -10px;
+    margin-left: 18px;
+    color: #e5951a;
+    font-weight: bolder;
+    
+}
+
+p{
+    /* text-indent: 1em; */
+    /* line-height: 70px; */
+}

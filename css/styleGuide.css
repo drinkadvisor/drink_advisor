@@ -267,4 +267,6 @@ hr:before {
   margin: 10px;
   width: 100px;
   height: 100px;
+  border-radius: 3px;
+  margin-right: 25px;
 }
