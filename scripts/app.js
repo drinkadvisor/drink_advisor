@@ -1,6 +1,6 @@
 'use strict';
 
-var headerArray = [' Name ', ' ABV ', ' Type ', ' Written Notes ', ' Score (out of 10) '];
+var headerArray = [' Name ', ' ABV ', ' Type ', ' Written Notes ', ' Score (out of 10) ', ' Delete '];
 var value = ['name', 'abv', 'type', 'writtenNotes', 'score', ''];
 
 //global vars for core data
