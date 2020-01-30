@@ -28,6 +28,14 @@ arguments: <select> node id, array of strings
 1.clear all <option> off the <select> tag
 2.create an <option> for each element in 'optionArray' (value and name)
 */
+function tableRender(){
+  if(localStorage !== 0){
+    getStorageBeer();
+    for (var i = 0; Addbeer.beerDrink.length; i++){
+      Addbeer.beerDrink[i].tableRow();
+    }
+  }
+}
 function dropdownOptions(selectID, optionArray){
   var selectTag = document.getElementById(selectID);
   selectTag.options.length = 0;
@@ -339,7 +347,7 @@ function checkLogin() {
 
 
 checkLogin();
-
+tableRender();
 //adding event listeners for login/logout
 loginForm.addEventListener('submit', handleLogin);
 logoutButton.addEventListener('click', handleLogout);
