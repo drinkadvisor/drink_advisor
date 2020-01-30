@@ -28,8 +28,13 @@ p {
 }
 
 #formControl{
-    margin-left: 550px;
+    margin: auto;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
+
 
 form{
     overflow: auto;

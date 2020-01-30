@@ -16,6 +16,16 @@ nav {
       height: 130px;
   }
 
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+ul button {
+    margin-top:15px;
+}
+
 main h1{
       color: #e5951a;
       padding: 25px;

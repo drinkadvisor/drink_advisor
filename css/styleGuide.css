@@ -141,7 +141,7 @@ nav ul li {
 
 button {
   display: inline;
-  margin: 15px;
+  /* margin: 15px; */
   background-color: #67140b;
   color: #e5951a;
   padding: 8px;
