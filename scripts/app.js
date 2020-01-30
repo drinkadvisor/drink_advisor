@@ -1,7 +1,7 @@
 'use strict';
 
 var headerArray = [' Name ', ' ABV ', ' Type ', ' Written Notes ', ' Score (out of 10) '];
-var value = ['name', 'abv', 'type', 'writtenNotes', 'score'];
+var value = ['name', 'abv', 'type', 'writtenNotes', 'score', ''];
 
 //global vars for core data
 var currentUser;
@@ -16,6 +16,7 @@ var wineTypes = ['Chardonnay', 'Riesling', 'Pinot Grigio', 'Sauvignon Blanc', 'C
 var htmlBody = document.getElementById('body');
 var loginForm = document.getElementById('login');
 var loginContainer = document.getElementById('loginForm');
+var loginChildren = loginContainer.getElementsByTagName('*');
 var logoutButton = document.getElementById('logout');
 var welcome = document.getElementById('welcome');
 var welcomeMsg = document.getElementById('welcomeMsg');
@@ -27,6 +28,14 @@ arguments: <select> node id, array of strings
 1.clear all <option> off the <select> tag
 2.create an <option> for each element in 'optionArray' (value and name)
 */
+function tableRender(){
+  if(localStorage !== 0){
+    getStorageBeer();
+    for (var i = 0; Addbeer.beerDrink.length; i++){
+      Addbeer.beerDrink[i].tableRow();
+    }
+  }
+}
 function dropdownOptions(selectID, optionArray){
   var selectTag = document.getElementById(selectID);
   selectTag.options.length = 0;
@@ -102,7 +111,7 @@ function updateStorage() {
 function getStorageWine() {
   var productData = localStorage.getItem('wineData');
   var parsedData = JSON.parse(productData);
-  Addwine.wineDrink = 0;
+  Addwine.wineDrink = [];
 
   for (var i = 0; i < parsedData.length; i++) {
     new Addwine(parsedData[i].name, parseFloat(parsedData[i].abv), parsedData[i].type, parsedData[i].writtenNotes, parseFloat(parsedData[i].score));
@@ -113,7 +122,7 @@ function getStorageWine() {
 function getStorageBeer() {
   var productData = localStorage.getItem('beerData');
   var parsedData = JSON.parse(productData);
-  Addbeer.beerDrink = 0;
+  Addbeer.beerDrink = [];
 
   for (var i = 0; i < parsedData.length; i++) {
     new Addbeer(parsedData[i].name, parseFloat(parsedData[i].abv), parsedData[i].type, parsedData[i].writtenNotes, parseFloat(parsedData[i].score));
@@ -156,6 +165,15 @@ Addbeer.prototype.tableRow = function(){
   this.rowData();
 };
 
+Addwine.prototype.tableRow = function(){
+
+  var tableRow = document.createElement('tr');
+  drinkBody.appendChild(tableRow);
+  tableRow.id = this.name;
+
+  this.rowData();
+};
+
 Addbeer.prototype.rowData = function () {
 
   for (var i = 0; i < headerArray.length; i++) {
@@ -166,12 +184,72 @@ Addbeer.prototype.rowData = function () {
     row.appendChild(userDrinkData);
   }
   var deleteButton = document.createElement('button');
+  deleteButton.className = 'deleteButton';
+  deleteButton.setAttribute('bevName', this.name);
   row.appendChild(deleteButton);
+  deleteListener();
+};
+
+Addwine.prototype.rowData = function () {
+
+  for (var i = 0; i < headerArray.length; i++) {
+    var userDrinkData = document.createElement('td');
+    userDrinkData.textContent = this[value[i]];
+
+    var row = document.getElementById(this.name);
+    row.appendChild(userDrinkData);
+  }
+  var deleteButton = document.createElement('button');
+  deleteButton.className = 'deleteButton';
+  deleteButton.setAttribute('bevName', this.name);
+  row.appendChild(deleteButton);
+  deleteListener();
 };
 
 
 for (var i = 0; i < Addbeer.beerDrink.length; i++) {
   Addbeer.beerDrink[i].tableRow();
+}
+
+
+//event listener for add beer
+function handleAddWine(event) {
+
+  event.preventDefault();
+  var name = event.target.name.value;
+  var abv = (event.target.abv.value);
+  var type = (event.target.type.value);
+  var writtenNotes = (event.target.writtenNotes.value);
+  var score = parseInt(event.target.score.value);
+
+  var newWine = new Addwine(name, abv, type, writtenNotes, score);
+
+  newWine.tableRow();
+  updateStorageWine();
+}
+
+//event listener for add beer
+
+//Event for Delete Button
+function deleteListener() {
+  var deleteButton = document.getElementsByClassName('deleteButton');
+  for(var x = 0; x < deleteButton.length; x++){
+
+    deleteButton[x].addEventListener('click', handleDelete);
+  }
+}
+
+function handleDelete(event){
+  event.preventDefault();
+  var deleteRow = event.target.getAttribute('bevName');
+  document.getElementById(deleteRow).remove();
+
+  for(var n = 0; n < Addbeer.beerDrink.length; n++){
+    if(Addbeer.beerDrink[n].name === deleteRow){
+      Addbeer.beerDrink.splice(n, 1);
+      updateStorageBeer();
+    }
+  }
 }
 //event listener for add drink
 function handleAddBeer(event) {
@@ -185,26 +263,33 @@ function handleAddBeer(event) {
 
   var newBeer = new Addbeer(name, abv, type, writtenNotes, score);
 
+  updateStorageBeer();
+
   newBeer.tableRow();
 }
 
 // Button for add drink
-var addNewDrink = document.getElementById('beer-drink');
-addNewDrink.addEventListener('submit', handleAddBeer);
+
 
 
 function showWelcome() {
   loginContainer.setAttribute('style', 'display: none');
+  for(var i=0; i<loginChildren.length; i++) {
+    loginChildren[i].setAttribute('style', 'display: none');
+  }
+  htmlDarken.setAttribute('style', 'display: none');
   welcome.setAttribute('style', 'display: inline-block');
   htmlBody.setAttribute('style', 'height: auto; overflow: scroll');
-  htmlDarken.setAttribute('style', 'display: none');
   welcomeMsg.textContent = `Welcome, ${currentUser.name}`;
 }
 
 function showLogin() {
   loginContainer.setAttribute('style', 'display: fixed');
-  welcome.setAttribute('style', 'display: none');
+  for(var i=0; i<loginChildren.length; i++) {
+    loginChildren[i].setAttribute('style', '');
+  }
   htmlDarken.setAttribute('style', 'display: block');
+  welcome.setAttribute('style', 'display: none');
   htmlBody.setAttribute('style', 'height: 100vh; overflow: hidden');
   welcomeMsg.textContent = '';
 }
@@ -221,6 +306,7 @@ function handleLogin(event) {
     console.log(`${currentUser.name} logged in`);
     updateStorage();
     event.target.username.value = null;
+    event.target.ageCheck.checked = false;
     showWelcome();
   } else {
     console.log('Login failed, user is underage!');
@@ -238,19 +324,17 @@ function handleLogout(event) {
 function toggleForm(event) {
   var formChoose = event.target.id;
   console.log(formChoose);
-  if(formChoose === 'beer'){
+  if(formChoose === 'beerToggleButton'){
     dropdownOptions('beer-selector', beerTypes);
     document.getElementById('wine-drink').setAttribute('style','display:none');
     document.getElementById('beer-drink').setAttribute('style','display:block');
-  }else if (formChoose === 'wine'){
+  }else if (formChoose === 'wineToggleButton'){
     dropdownOptions('wine-selector', wineTypes);
     document.getElementById('beer-drink').setAttribute('style','display:none');
     document.getElementById('wine-drink').setAttribute('style','display:block');
   }
 
 }
-
-
 
 function checkLogin() {
   if(getStorageUser()) {
@@ -262,12 +346,20 @@ function checkLogin() {
 }
 
 
-createHeader();
 checkLogin();
-
+tableRender();
 //adding event listeners for login/logout
 loginForm.addEventListener('submit', handleLogin);
 logoutButton.addEventListener('click', handleLogout);
 
-document.getElementById('beer').addEventListener('click', toggleForm);
-document.getElementById('wine').addEventListener('click', toggleForm);
+if(window.location.href === "http://127.0.0.1:5500/index.html" ||
+   window.location.href === "https://drinkadvisor.github.io/drink_advisor/index.html" ||
+   window.location.href === "https://drinkadvisor.github.io/drink_advisor"){
+  document.getElementById('beerToggleButton').addEventListener('click', toggleForm);
+  document.getElementById('wineToggleButton').addEventListener('click', toggleForm);
+  var addNewBeerDrink = document.getElementById('beer-drink');
+  addNewBeerDrink.addEventListener('submit', handleAddBeer);
+  var addNewWineDrink = document.getElementById('wine-drink');
+  addNewWineDrink.addEventListener('submit', handleAddWine);
+  createHeader();
+}

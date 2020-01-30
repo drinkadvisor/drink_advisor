@@ -10,14 +10,30 @@
         <link rel='stylesheet' href='./css/styleGuide.css'>
         <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Lemonada|PT+Serif&display=swap" rel="stylesheet">
         <link rel='stylesheet' href='./css/chart.css'>
-        <title>Chart</title>
+        <link rel="icon" type="image/png" href="assets/drinkadvisor-logo-1.png">
+        <title>Charts - DrinkAdvisor</title>
     </head>
 
-    <body>
-        
+    <body id="body">
+        <div id="darken"></div>
+        <div id="loginForm">
+            <h3>Please login to start tracking beverages</h3>
+            <form id="login">
+                <fieldset>
+                    <p>
+                        <input id="usernameInput" name="username" type="string" required="required" placeholder="Username">
+                        <button type="submit" name="addName">Login</button>
+                    </p>
+                    <p>
+                        <input id="ageCheck" type="checkbox" name="ageCheck">
+                        <label id="ageLabel" for="ageCheck">I am over 21 years old</label>
+                    </p>
+                </fieldset>
+            </form>
+        </div>
         <header>
             <div id='subText'>
-            <img id='logo' src="./assets/drinkadvisorLogo.png">
+            <img id='logo' src="./assets/drinkadvisor-logo-1.png">
             <h1>Drink Advisor</h1>
             <h3>Alcohol and Statistics: Together At Last</h3>
             <nav>
@@ -27,6 +43,10 @@
                 <li><a href="aboutUs.html">About Us</a><li>
                 </ul>
             </nav>
+            <div id="welcome">
+                <p id="welcomeMsg"></p>
+                <button id="logout" type="button" name="logout">Logout</button>
+            </div>
             </div>
         </header>
 
@@ -35,7 +55,18 @@
             <div>
             <h1 id="quote"><cite>"For if society is threatened by intoxicants, it is equally threatened by the lack of them…" -Roger Scruton</cite></h1>
             </div>
-
+            <div>
+                <h1>Select Chart To Render
+                    <ul>
+                        <button id='renderBeer'>Beer Scores</button>
+                        <button id='renderAll'>All Scores</button>
+                        <button id='renderWine'>Wine Scores</button>
+                    </ul>
+                </h1>
+                <div>
+                    
+                </div>
+            </div>
             <div class="chart-container" style="position: relative;">
             <canvas id='chartHook'></canvas>
             </div>

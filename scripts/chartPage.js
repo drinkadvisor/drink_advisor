@@ -51,6 +51,13 @@ function renderChart(ctx, typeArray, drinkArray){
 
 }
 
+//context of the canvas element
+var context = document.getElementById('chartHook');
+// Addwine.wineDrink = [];
+// Addbeer.beerDrink = [];
+
+var beerTypes = ['Lager', 'Ale', 'IPA', 'Pilsner', 'Witbier', 'Stout', 'Pale Ale', 'Porter', 'Brown', 'Red', 'Belgian'];
+var wineTypes = ['Chardonnay', 'Riesling', 'Pinot Grigio', 'Sauvignon Blanc', 'Cabernet Sauvignon', 'Pinot Noir', 'Syrah', 'Zinfandel', 'Malbec', 'Merlot'];
 
 /*
 arguments: array of drink types to use as 'labels', array of drink objects
@@ -96,14 +103,14 @@ TypeScore.prototype.generateAverage = function() {
 };
 
 //uses global vars to populate the renderChart attriutes
-function renderBeers(ctx){
-  renderChart(ctx, beerTypes, Addbeer.beerDrink);
+function renderBeers(){
+  renderChart(context, beerTypes, Addbeer.beerDrink);
 }
 
 //uses global vars to populate the renderChart attriutes
 
-function renderWines(ctx){
-  renderChart(ctx, wineTypes, Addwine.wineDrink);
+function renderWines(){
+  renderChart(context, wineTypes, Addwine.wineDrink);
 }
 
 //this will take in arrays of label arrays, array of object arrays
@@ -112,16 +119,18 @@ function renderWines(ctx){
 function concatLabelAndObjectArrays(labelArrayArrays, objectArrayArrays){
   var variety = [];
   var drinks = [];
-
-  for(let x = 0; x < labelArrayArrays.length; x++){
-    for(let y = 0; y < labelArrayArrays[x].length; x++){
-      variety.push(labelArrayArrays[x][y]);
+  console.log('objArrays', objectArrayArrays);
+  console.log('labelArr', labelArrayArrays);
+  for(let labelX = 0; labelX < labelArrayArrays.length; labelX++){
+    for(let labelY = 0; labelY < labelArrayArrays[labelX].length; labelY++){
+      variety.push(labelArrayArrays[labelX][labelY]);
     }
   }
 
-  for(let x = 0; x < objectArrayArrays.length; x++){
-    for(let y = 0; y < objectArrayArrays[x].length; x++){
-      drinks.push(labelArrayArrays[x][y]);
+  for(let objectX = 0; objectX < objectArrayArrays.length; objectX++){
+    for(let objectY = 0; objectY < objectArrayArrays[objectX].length; objectY++){
+      console.log(objectArrayArrays[objectX][objectY]);
+      drinks.push(objectArrayArrays[objectX][objectY]);
     }
   }
 
@@ -132,9 +141,10 @@ function concatLabelAndObjectArrays(labelArrayArrays, objectArrayArrays){
 //calls a function to get a concatenated list of beer/wine types and returns that as a single array
 //does the same for all examples of beer/wine
 //then invokes the render chart
-function renderBeerAndWine(ctx){
+function renderBeerAndWine(){
   var fullTableObjects = concatLabelAndObjectArrays([beerTypes, wineTypes], [Addbeer.beerDrink, Addwine.wineDrink]);
-  renderChart(ctx, fullTableObjects[0], fullTableObjects[1]);
+  console.log(fullTableObjects);
+  renderChart(context, fullTableObjects[0], fullTableObjects[1]);
 }
 
 
@@ -146,7 +156,7 @@ var labs = ['foo', 'bar'];
 var a = {
   name: 'test1',
   type: 'foo',
-  score: 3, 
+  score: 3,
 };
 
 var b = {
@@ -163,10 +173,14 @@ var c = {
 
 var q = [a,b,c];
 
-console.log(chartScoreAverage(labs, q));
+//console.log(chartScoreAverage(labs, q));
 
 
-var ctx = document.getElementById('chartHook');
 
-renderChart(ctx, labs, q);
+
+//renderChart(context, labs, q);
+getStorage();
+document.getElementById('renderBeer').addEventListener('click',renderBeers);
+document.getElementById('renderAll').addEventListener('click',renderBeerAndWine);
+document.getElementById('renderWine').addEventListener('click',renderWines);
 
