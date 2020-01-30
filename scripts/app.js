@@ -29,11 +29,22 @@ arguments: <select> node id, array of strings
 2.create an <option> for each element in 'optionArray' (value and name)
 */
 function tableRender(){
-  if(localStorage !== 0){
+  if(localStorage.beerDrink){
     getStorageBeer();
+    createHeader();
     for (var i = 0; i < Addbeer.beerDrink.length; i++){
       Addbeer.beerDrink[i].tableRow();
-      console.log(Addbeer.beerDrink[i]);
+      //console.log(Addbeer.beerDrink[i]);
+    }
+  }
+}
+
+function tableRenderWine(){
+  if(localStorage.wineDrink){
+    getStorageWine();
+    for(var i = 0; i <Addwine.wineDrink.length; i++){
+      Addwine.wineDrink[i].tableRow();
+      //console.log(Addwine.wineDrink[i]);
     }
   }
 }
@@ -240,6 +251,8 @@ function deleteListener() {
   }
 }
 
+
+//delete function for row data and local storage
 function handleDelete(event){
   event.preventDefault();
   var deleteRow = event.target.getAttribute('bevName');
@@ -249,6 +262,11 @@ function handleDelete(event){
     if(Addbeer.beerDrink[n].name === deleteRow){
       Addbeer.beerDrink.splice(n, 1);
       updateStorageBeer();
+    }
+  } for(var n = 0; n < Addwine.wineDrink.length; n++){
+    if(Addwine.wineDrink[n].name === deleteRow){
+      Addwine.wineDrink.splice(n, 1);
+      updateStorageWine();
     }
   }
 }
@@ -349,6 +367,7 @@ function checkLogin() {
 
 checkLogin();
 tableRender();
+tableRenderWine();
 //adding event listeners for login/logout
 loginForm.addEventListener('submit', handleLogin);
 logoutButton.addEventListener('click', handleLogout);
@@ -362,5 +381,4 @@ if(window.location.href === "http://127.0.0.1:5500/index.html" ||
   addNewBeerDrink.addEventListener('submit', handleAddBeer);
   var addNewWineDrink = document.getElementById('wine-drink');
   addNewWineDrink.addEventListener('submit', handleAddWine);
-  createHeader();
 }
