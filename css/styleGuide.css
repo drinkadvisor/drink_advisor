@@ -23,6 +23,7 @@ font-family: 'Lemonada', cursive;
 
 body {
   font-family: 'Lato', sans-serif;
+  background-color: #f5f5dc;
 }
 
 header {
@@ -239,12 +240,16 @@ hr:before {
 #divOuter{
   height: 50px;
   background-color: #67140b;
-  box-shadow: 0 0 10px lime;
+  box-shadow: 0 0 10px #e5951a;
   width: 100%;
   margin: 0 auto;
+  z-index: 5;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .backgroundImg{
   background-image: url("../assets/corks.jpg");
+  background-size: cover;
   overflow: auto;
 }
