@@ -33,7 +33,17 @@ function tableRender(){
     getStorageBeer();
     for (var i = 0; i < Addbeer.beerDrink.length; i++){
       Addbeer.beerDrink[i].tableRow();
-      console.log(Addbeer.beerDrink[i]);
+      //console.log(Addbeer.beerDrink[i]);
+    }
+  }
+}
+
+function tableRenderWine(){
+  if(localStorage !== 0){
+    getStorageWine();
+    for(var i = 0; i <Addwine.wineDrink.length; i++){
+      Addwine.wineDrink[i].tableRow();
+      //console.log(Addwine.wineDrink[i]);
     }
   }
 }
@@ -240,6 +250,8 @@ function deleteListener() {
   }
 }
 
+
+//delete function for row data and local storage
 function handleDelete(event){
   event.preventDefault();
   var deleteRow = event.target.getAttribute('bevName');
@@ -249,6 +261,11 @@ function handleDelete(event){
     if(Addbeer.beerDrink[n].name === deleteRow){
       Addbeer.beerDrink.splice(n, 1);
       updateStorageBeer();
+    }
+  } for(var n = 0; n < Addwine.wineDrink.length; n++){
+    if(Addwine.wineDrink[n].name === deleteRow){
+      Addwine.wineDrink.splice(n, 1);
+      updateStorageWine();
     }
   }
 }
@@ -349,6 +366,7 @@ function checkLogin() {
 
 checkLogin();
 tableRender();
+tableRenderWine();
 //adding event listeners for login/logout
 loginForm.addEventListener('submit', handleLogin);
 logoutButton.addEventListener('click', handleLogout);
