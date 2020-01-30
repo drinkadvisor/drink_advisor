@@ -122,6 +122,9 @@ nav ul li {
   left: 0;
   background-color: #000;
   opacity: 50%;
+    -moz-opacity: 0.5;
+    -webkit-opacity: 0.5;
+    filter: alpha(opacity=50);
   z-index: 4;
 }
 
