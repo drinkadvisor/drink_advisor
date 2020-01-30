@@ -119,7 +119,8 @@ function renderWines(){
 function concatLabelAndObjectArrays(labelArrayArrays, objectArrayArrays){
   var variety = [];
   var drinks = [];
-
+  console.log('objArrays', objectArrayArrays);
+  console.log('labelArr', labelArrayArrays);
   for(let labelX = 0; labelX < labelArrayArrays.length; labelX++){
     for(let labelY = 0; labelY < labelArrayArrays[labelX].length; labelY++){
       variety.push(labelArrayArrays[labelX][labelY]);
@@ -128,7 +129,8 @@ function concatLabelAndObjectArrays(labelArrayArrays, objectArrayArrays){
 
   for(let objectX = 0; objectX < objectArrayArrays.length; objectX++){
     for(let objectY = 0; objectY < objectArrayArrays[objectX].length; objectY++){
-      drinks.push(labelArrayArrays[objectX][objectY]);
+      console.log(objectArrayArrays[objectX][objectY]);
+      drinks.push(objectArrayArrays[objectX][objectY]);
     }
   }
 
@@ -171,7 +173,7 @@ var c = {
 
 var q = [a,b,c];
 
-console.log(chartScoreAverage(labs, q));
+//console.log(chartScoreAverage(labs, q));
 
 
 
