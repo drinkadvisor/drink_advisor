@@ -50,6 +50,10 @@ p {
     
 }
 
+#chartOptions {
+    text-align: center;
+}
+
 #chart {
     width: 960px;
     margin: 0 auto;
@@ -85,20 +89,30 @@ main {
 .chartjs-render-monitor{
     height: 100px;
 } */
+
+#chart-holder-box {
+    height: 400px !important;
+    width: 960px !important;
+}
  
 .chart-container{
     /* height:40vh; 
     width:80vw; */
-    height: 400px;
-    width: 960px;
+    height: 400px !important;
+    width: 960px !important;
     margin: 0 auto;
     background-color: white;
     overflow: auto;
     margin-top: 125px;
     border-radius: 10px;
     margin-bottom: 75px;
+    display:none;
 }
 
+canvas {
+    height: 400px !important;
+    width: 960px !important;
+}
 /* #chartHook{
     height: 100px;
 } */
