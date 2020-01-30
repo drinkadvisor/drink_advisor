@@ -106,14 +106,15 @@ textarea {
     border-radius: 10px;
     margin-top: 50px;
     box-shadow: 0 0 10px #67140b;
-    height: 400px;
+    min-height: 400px;
+    
     
 }
 
 #outerDrinkTable{
     background-image: url("../assets/vineyard.png");
     /* background-color: #f5f5dc; */
-    height: 500px;
+    min-height: 500px;
     overflow: auto;
 }
 
