@@ -4,7 +4,12 @@ if you want to combine wine/beer then combine the label
 arrays and drink object arrays to pass them in
 */
 //this needs more functions to run, just a placeholder
+var myChart;
+
 function renderChart(ctx, typeArray, drinkArray){
+  if(myChart){
+    myChart.destroy();
+  }
   document.getElementById("chart-holder-box").setAttribute('style','display:block;');
   var data = {};
   var labels = [];
@@ -26,7 +31,7 @@ function renderChart(ctx, typeArray, drinkArray){
     bgColors.push('#3e95cd');
   }
 
-  var myChart = new Chart(ctx, {
+  myChart = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: typeArray,
