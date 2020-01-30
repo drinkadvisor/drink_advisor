@@ -7,16 +7,6 @@ nav {
     float: left;
 }
 
-/* footer {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
-    z-index: 20;
-  } */
-
   header{
       position: fixed;
       left: 0;
@@ -39,7 +29,6 @@ main h1{
       margin-bottom: 100px;
       font-size: 20px;
       box-shadow: 0 0 20px #f5f5dc;
-
   }
 
 
@@ -53,12 +42,11 @@ p {
 #chart {
     width: 960px;
     margin: 0 auto;
-    /* padding: 60px; */
     max-height: 300px; /* ARE WE SURE WE WANT THIS???? */
     background-color: white;
     border-radius: 10px;
     margin-top: 10px;
-    box-shadow: 0 0 20px #67140b;
+  
     position: absolute;
     top: 50%;
     left: 50%;
@@ -68,8 +56,6 @@ p {
 }
 
 main {
-    /* background-color: white; */
-    /* height: 450px; */
     background-image: url("../assets/bar.jpg");
     background-repeat: repeat;
     z-index: -1;
@@ -94,11 +80,29 @@ main {
     margin: 0 auto;
     background-color: white;
     overflow: auto;
-    margin-top: 125px;
+    margin-top: 25px;
     border-radius: 10px;
     margin-bottom: 75px;
+    box-shadow: 0 0 20px #67140b;
 }
 
-/* #chartHook{
-    height: 100px;
-} */
+#renderChart ul {
+  width: 800px;
+  margin: 0 auto;
+  margin-right: 0px;
+    
+}
+
+#renderChart h1 {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+      
+  }
+
+  #renderChart ul {
+    width: 900px;
+    margin: 0 auto;
+    margin-left: 428px;
+    margin-top: 20px;
+  }

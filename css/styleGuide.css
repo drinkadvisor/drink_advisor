@@ -239,7 +239,7 @@ hr:before {
 #divOuter{
   height: 50px;
   background-color: #67140b;
-  box-shadow: 0 0 10px #f5f5dc;
+  box-shadow: 0 0 10px lime;
   width: 100%;
   margin: 0 auto;
 }
