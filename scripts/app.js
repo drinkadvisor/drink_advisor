@@ -161,20 +161,25 @@ function getStorage() {
 
 var drinkHeader = document.getElementById('table-head');
 var drinkBody = document.getElementById('table-body');
+var beerBody = document.getElementById('table-body-beer');
+var wineBody = document.getElementById('table-body-wine');
 
 var createHeader = function () {
+  var tr = document.createElement('tr');
   for (var x = 0; x < headerArray.length; x++) {
     var categories = document.createElement('th');
     categories.textContent = headerArray[x];
     drinkHeader.appendChild(categories);
+    //tr.appendChild(categories);
   }
+  //drinkHeader.appendChild(tr);
 };
 //Need to create seperate tr function;
 
 Addbeer.prototype.tableRow = function(){
 
   var tableRow = document.createElement('tr');
-  drinkBody.appendChild(tableRow);
+  beerBody.appendChild(tableRow);
   tableRow.id = this.name;
 
   this.rowData();
@@ -183,7 +188,7 @@ Addbeer.prototype.tableRow = function(){
 Addwine.prototype.tableRow = function(){
 
   var tableRow = document.createElement('tr');
-  drinkBody.appendChild(tableRow);
+  wineBody.appendChild(tableRow);
   tableRow.id = this.name;
 
   this.rowData();
@@ -222,9 +227,9 @@ Addwine.prototype.rowData = function () {
 };
 
 
-for (var i = 0; i < Addbeer.beerDrink.length; i++) {
-  Addbeer.beerDrink[i].tableRow();
-}
+//for (var i = 0; i < Addbeer.beerDrink.length; i++) {
+  //Addbeer.beerDrink[i].tableRow();
+//}
 
 
 //event listener for add beer
@@ -350,10 +355,14 @@ function toggleForm(event) {
     dropdownOptions('beer-selector', beerTypes);
     document.getElementById('wine-drink').setAttribute('style','display:none');
     document.getElementById('beer-drink').setAttribute('style','display:block');
+    document.getElementById('table-body-beer').removeAttribute('style');
+    document.getElementById('table-body-wine').setAttribute('style','display:none');
   }else if (formChoose === 'wineToggleButton'){
     dropdownOptions('wine-selector', wineTypes);
     document.getElementById('beer-drink').setAttribute('style','display:none');
     document.getElementById('wine-drink').setAttribute('style','display:block');
+    document.getElementById('table-body-beer').setAttribute('style','display:none');
+    document.getElementById('table-body-wine').removeAttribute('style');
   }
 
 }
