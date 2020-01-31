@@ -431,7 +431,7 @@ logoutButton.addEventListener('click', handleLogout);
 
 if(window.location.href === "http://127.0.0.1:5500/index.html" ||
    window.location.href === "https://drinkadvisor.github.io/drink_advisor/index.html" ||
-   window.location.href === "https://drinkadvisor.github.io/drink_advisor"){
+   window.location.href === "https://drinkadvisor.github.io/drink_advisor/"){
   document.getElementById('beerToggleButton').addEventListener('click', toggleForm);
   document.getElementById('wineToggleButton').addEventListener('click', toggleForm);
   var addNewBeerDrink = document.getElementById('beer-drink');
