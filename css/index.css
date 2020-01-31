@@ -28,8 +28,13 @@ p {
 }
 
 #formControl{
-    margin-left: 550px;
+    margin: auto;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
+
 
 form{
     overflow: auto;
@@ -40,6 +45,7 @@ form{
     /* background-image: url("../assets/hops-and-beer-social.jpg"); */
 
     background-image: url("../assets/hops-and-beer-social.jpg");
+    background-size: cover;
 }
 
 main {
@@ -102,18 +108,19 @@ textarea {
     width: 1024px;
     margin: 0 auto;
     background-color: white;
-    border: 1px solid black;
     border-radius: 10px;
     margin-top: 50px;
-    box-shadow: 0 0 10px #f5f5dc;
-    height: 400px;
+    box-shadow: 0 0 10px #67140b;
+    min-height: 400px;
+    
     
 }
 
 #outerDrinkTable{
-    /* background-image: url("../assets/beer.jpg"); */
-    background-color: #f5f5dc;
-    height: 500px;
+    background-image: url("../assets/vineyard.png");
+    /* background-color: #f5f5dc; */
+    min-height: 500px;
+    background-size: cover;
     overflow: auto;
 }
 
@@ -167,7 +174,7 @@ form{
 }
 
  #indexQuote em{
-    color: #e5951a;
+    color: #67140b;
     margin: 0 auto;
     font-size: 20px;
     clear: both;

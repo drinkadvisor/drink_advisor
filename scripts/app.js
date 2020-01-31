@@ -1,6 +1,6 @@
 'use strict';
 
-var headerArray = [' Name ', ' ABV ', ' Type ', ' Written Notes ', ' Score (out of 10) '];
+var headerArray = [' Name ', ' ABV ', ' Type ', ' Written Notes ', ' Score (out of 10) ', ' Delete '];
 var value = ['name', 'abv', 'type', 'writtenNotes', 'score', ''];
 
 //global vars for core data
@@ -28,11 +28,33 @@ arguments: <select> node id, array of strings
 1.clear all <option> off the <select> tag
 2.create an <option> for each element in 'optionArray' (value and name)
 */
-function tableRender(){
-  if(localStorage !== 0){
+function tableRenderBeer(){
+  console.log('beer render envoked');
+  if(localStorage.beerData){
+    console.log('step2');
     getStorageBeer();
-    for (var i = 0; Addbeer.beerDrink.length; i++){
+    
+    if(!document.getElementById('tableHeaderRow')){
+      createHeader();
+    }
+    
+    for (var i = 0; i < Addbeer.beerDrink.length; i++){
       Addbeer.beerDrink[i].tableRow();
+      //console.log(Addbeer.beerDrink[i]);
+    }
+  }
+}
+
+function tableRenderWine(){
+  console.log('wine render envoked');
+  if(localStorage.wineData){
+    getStorageWine();
+    if(!document.getElementById('tableHeaderRow')){
+      createHeader();
+    }
+    for(var i = 0; i < Addwine.wineDrink.length; i++){
+      Addwine.wineDrink[i].tableRow();
+      //console.log(Addwine.wineDrink[i]);
     }
   }
 }
@@ -146,32 +168,63 @@ function getStorage() {
 
 var drinkHeader = document.getElementById('table-head');
 var drinkBody = document.getElementById('table-body');
+var beerBody = document.getElementById('table-body-beer');
+var wineBody = document.getElementById('table-body-wine');
 
 var createHeader = function () {
+  var tr = document.createElement('tr');
+  tr.id = 'tableHeaderRow';
+  console.log('1');
   for (var x = 0; x < headerArray.length; x++) {
-    var categories = document.createElement('th');
-    categories.textContent = headerArray[x];
-    drinkHeader.appendChild(categories);
+    console.log('2');
+    var th = document.createElement('th');
+    th.innerText = headerArray[x];
+    // drinkHeader.appendChild(categories);
+    tr.appendChild(th);
   }
+  console.log('3');
+  drinkHeader.appendChild(tr);
+  console.log('4');
 };
 //Need to create seperate tr function;
 
 Addbeer.prototype.tableRow = function(){
+  var existingRow = false;
+  var rowQuery = document.getElementsByTagName('tr');
+  for(var rowi = 0; rowi < rowQuery.length; rowi++){
+    if (rowQuery[rowi].id === this.name){
+      existingRow = true;
+      break;
+    }
 
-  var tableRow = document.createElement('tr');
-  drinkBody.appendChild(tableRow);
-  tableRow.id = this.name;
+  }
 
-  this.rowData();
+  if(existingRow === false){
+    var tableRow = document.createElement('tr');
+    beerBody.appendChild(tableRow);
+    tableRow.id = this.name;
+    this.rowData();
+  }
 };
 
 Addwine.prototype.tableRow = function(){
+  var existingRow = false;
+  var rowQuery = document.getElementsByTagName('tr');
+  for(var rowi = 0; rowi < rowQuery.length; rowi++){
+    if (rowQuery[rowi].id === this.name){
+      existingRow = true;
+      break;
+    }
 
-  var tableRow = document.createElement('tr');
-  drinkBody.appendChild(tableRow);
-  tableRow.id = this.name;
+  }
 
-  this.rowData();
+  if(existingRow === false){
+    var tableRow = document.createElement('tr');
+    wineBody.appendChild(tableRow);
+    tableRow.id = this.name;
+    this.rowData();
+  }
+
 };
 
 Addbeer.prototype.rowData = function () {
@@ -186,6 +239,7 @@ Addbeer.prototype.rowData = function () {
   var deleteButton = document.createElement('button');
   deleteButton.className = 'deleteButton';
   deleteButton.setAttribute('bevName', this.name);
+  deleteButton.textContent = 'x';
   row.appendChild(deleteButton);
   deleteListener();
 };
@@ -202,14 +256,15 @@ Addwine.prototype.rowData = function () {
   var deleteButton = document.createElement('button');
   deleteButton.className = 'deleteButton';
   deleteButton.setAttribute('bevName', this.name);
+  deleteButton.textContent = 'x';
   row.appendChild(deleteButton);
   deleteListener();
 };
 
 
-for (var i = 0; i < Addbeer.beerDrink.length; i++) {
-  Addbeer.beerDrink[i].tableRow();
-}
+//for (var i = 0; i < Addbeer.beerDrink.length; i++) {
+  //Addbeer.beerDrink[i].tableRow();
+//}
 
 
 //event listener for add beer
@@ -223,9 +278,15 @@ function handleAddWine(event) {
   var score = parseInt(event.target.score.value);
 
   var newWine = new Addwine(name, abv, type, writtenNotes, score);
+  updateStorageWine();
+
+  if(!document.getElementById('tableHeaderRow')){
+    createHeader();
+  }
+
 
   newWine.tableRow();
-  updateStorageWine();
+  event.target.reset();
 }
 
 //event listener for add beer
@@ -239,15 +300,22 @@ function deleteListener() {
   }
 }
 
+
+//delete function for row data and local storage
 function handleDelete(event){
   event.preventDefault();
   var deleteRow = event.target.getAttribute('bevName');
   document.getElementById(deleteRow).remove();
 
-  for(var n = 0; n < Addbeer.beerDrink.length; n++){
+  for(let n = 0; n < Addbeer.beerDrink.length; n++){
     if(Addbeer.beerDrink[n].name === deleteRow){
       Addbeer.beerDrink.splice(n, 1);
       updateStorageBeer();
+    }
+  } for(let n = 0; n < Addwine.wineDrink.length; n++){
+    if(Addwine.wineDrink[n].name === deleteRow){
+      Addwine.wineDrink.splice(n, 1);
+      updateStorageWine();
     }
   }
 }
@@ -264,8 +332,13 @@ function handleAddBeer(event) {
   var newBeer = new Addbeer(name, abv, type, writtenNotes, score);
 
   updateStorageBeer();
-
+  
+  if(!document.getElementById('tableHeaderRow')){
+    createHeader();
+  }
+  
   newBeer.tableRow();
+  event.target.reset();
 }
 
 // Button for add drink
@@ -274,7 +347,7 @@ function handleAddBeer(event) {
 
 function showWelcome() {
   loginContainer.setAttribute('style', 'display: none');
-  for(var i=0; i<loginChildren.length; i++) {
+  for(var i = 0; i < loginChildren.length; i++) {
     loginChildren[i].setAttribute('style', 'display: none');
   }
   htmlDarken.setAttribute('style', 'display: none');
@@ -313,10 +386,10 @@ function handleLogin(event) {
   }
 }
 
-function handleLogout(event) {
-  event.preventDefault();
+function handleLogout() {
   console.log(`${currentUser.name} logged out`);
   localStorage.clear();
+  location.reload();
   showLogin();
 }
 
@@ -328,10 +401,14 @@ function toggleForm(event) {
     dropdownOptions('beer-selector', beerTypes);
     document.getElementById('wine-drink').setAttribute('style','display:none');
     document.getElementById('beer-drink').setAttribute('style','display:block');
+    document.getElementById('table-body-beer').removeAttribute('style');
+    document.getElementById('table-body-wine').setAttribute('style','display:none');
   }else if (formChoose === 'wineToggleButton'){
     dropdownOptions('wine-selector', wineTypes);
     document.getElementById('beer-drink').setAttribute('style','display:none');
     document.getElementById('wine-drink').setAttribute('style','display:block');
+    document.getElementById('table-body-beer').setAttribute('style','display:none');
+    document.getElementById('table-body-wine').removeAttribute('style');
   }
 
 }
@@ -347,7 +424,7 @@ function checkLogin() {
 
 
 checkLogin();
-tableRender();
+
 //adding event listeners for login/logout
 loginForm.addEventListener('submit', handleLogin);
 logoutButton.addEventListener('click', handleLogout);
@@ -361,5 +438,6 @@ if(window.location.href === "http://127.0.0.1:5500/index.html" ||
   addNewBeerDrink.addEventListener('submit', handleAddBeer);
   var addNewWineDrink = document.getElementById('wine-drink');
   addNewWineDrink.addEventListener('submit', handleAddWine);
-  createHeader();
+  tableRenderBeer();
+  tableRenderWine();
 }
